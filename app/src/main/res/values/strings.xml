@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">smartgoat</string>
+    <string name="login">LOGIN</string>
+    <string name="password">Password</string>
+    <string name="masuk">MASUK</string>
+    <string name="email">Email</string>
+    <string name="masukkan_nama_lengkap">Masukkan Nama Lengkap</string>
+    <string name="masukkan_email">Masukkan Email</string>
+    <string name="selanjutnya">Selanjutnya</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="domisili_peternak">Domisili Peternak</string>
+    <string name="lokasi_peternak">Lokasi Peternak</string>
+    <string name="daftar">Daftar</string>
+    <string name="home">HOME</string>
+    <string name="weather">Weather</string>
+    <string name="status_normal">Status Normal</string>
+    <string name="kelembapan_50">Kelembapan 50%</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="kontrol">Kontrol</string>
+    <string name="berita">Berita</string>
+</resources>

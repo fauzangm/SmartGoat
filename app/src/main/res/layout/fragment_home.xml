@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.auth.login.LoginActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgcontainerTop"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/bg_primary_bottom_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <ImageView
+            android:id="@+id/imggoatb"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/img_head_goat"
+            android:layout_marginStart="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/tittle"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/img_tittlesplash"
+            android:layout_marginStart="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imggoatb" />
+
+        <TextView
+            android:id="@+id/imgtextheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="60dp"
+            android:fontFamily="@font/poppinssemibold"
+            android:gravity="end"
+            android:text="Monitoring\nStatus"
+            android:textColor="@color/colorbrown"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_weather"
+            android:layout_width="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="8dp"
+            android:elevation="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="150dp" >
+            <ImageView
+                android:src="@drawable/bg_cardview_gradient"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weather"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:shadowColor="@color/black"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="65dp"
+                android:text="27°"
+                android:fontFamily="@font/poppinslight"
+                android:textColor="@color/white"
+                android:textSize="48dp"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:layout_marginBottom="20dp"
+                android:shadowColor="@color/black"
+                android:elevation="18dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="start|center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minggu,16 November 2022"
+                android:textColor="@color/white"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:shadowColor="@color/black"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_cloud"
+                android:layout_gravity="end"
+                android:layout_margin="40dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status_normal"
+                android:textColor="@color/green"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:shadowColor="@color/white"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"/>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_kelembapan"
+                android:layout_gravity="bottom"
+                android:layout_margin="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kelembapan_50"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppinslight"
+                android:textSize="10sp"
+                android:shadowColor="@color/white"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_sun"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200 Lux"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppinslight"
+                android:textSize="10dp"
+                android:shadowColor="@color/white"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="20dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NH"
+                android:textColor="@color/white"
+                android:layout_marginEnd="50dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="40dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textColor="@color/white"
+                android:layout_marginEnd="40dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="35dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amoniak"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppinslight"
+                android:textSize="10dp"
+                android:layout_marginEnd="40dp"
+                android:shadowColor="@color/white"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="20dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_kambing"
+            android:layout_width="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_height="163dp"
+            android:elevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:src="@mipmap/imgkomposisi"
+            app:layout_constraintTop_toBottomOf="@id/cv_weather"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:src="@drawable/bg_cardview_gradient_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/goatnew"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data Kambinng"
+                android:layout_gravity="bottom"
+                android:layout_margin="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_komposisi"
+            android:layout_width="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_height="163dp"
+            android:elevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:src="@mipmap/imgkomposisi"
+            app:layout_constraintTop_toBottomOf="@id/btn_kambing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:src="@drawable/bg_cardview_gradient_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_rumput"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Komposisi Pekan Ternak"
+                android:layout_gravity="bottom"
+                android:layout_margin="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.auth.login.LoginActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/img_headerrigt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <TextView
+            android:id="@+id/tv_mohon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppinslight"
+            android:text="Mohon mengisi beberapa data\nuntuk proses daftar anda"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvregist" />
+
+        <TextView
+            android:id="@+id/tvregist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registras"
+            android:fontFamily="@font/poppinsbold"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBodyContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/default_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_mohon">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llcFormContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/big_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llcFormnamaLengkapContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tiFormUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="none"
+                        app:hintAnimationEnabled="false"
+                        app:hintEnabled="false">
+
+                        <TextView
+                            android:id="@+id/tvtanggal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/default_height"
+                            android:background="@drawable/bg_form_white_accent_border_rounded"
+                            android:hint="@string/tanggal_lahir"
+                            android:imeActionLabel="@string/tanggal_lahir"
+                            android:drawableEnd="@drawable/ic_calender"
+                            android:drawablePadding="@dimen/small_margin"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="@dimen/small_padding"
+                            android:paddingVertical="@dimen/small_padding"
+                            android:imeOptions="actionNext"
+                            android:maxLines="1"
+                            android:paddingStart="20dp"
+                            android:paddingTop="@dimen/small_padding"
+                            android:singleLine="true"
+                            android:textColor="@color/colorprimary"
+                            android:textSize="@dimen/default_subtitle"
+                            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llcFormemailContainer"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tiFormEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="none"
+                        app:hintAnimationEnabled="false"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etDomisili"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/default_height"
+                            android:background="@drawable/bg_form_white_accent_border_rounded"
+                            android:gravity="start"
+                            android:hint="@string/domisili_peternak"
+                            android:imeActionLabel="@string/domisili_peternak"
+                            android:imeOptions="actionNext"
+                            android:maxLines="1"
+                            android:inputType="textCapCharacters"
+                            android:paddingStart="20dp"
+                            android:paddingTop="@dimen/small_padding"
+                            android:singleLine="true"
+                            android:textColor="@color/colorprimary"
+                            android:textSize="@dimen/default_subtitle"
+                            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llcFormLokasiContainer"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tiFormLokasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="none"
+                        app:hintAnimationEnabled="false"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etLokasi"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/default_height"
+                            android:background="@drawable/bg_form_white_accent_border_rounded"
+                            android:gravity="start"
+                            android:hint="@string/lokasi_peternak"
+                            android:imeActionLabel="@string/lokasi_peternak"
+                            android:imeOptions="actionNext"
+                            android:maxLines="1"
+                            android:paddingStart="20dp"
+                            android:inputType="textCapCharacters"
+                            android:paddingTop="@dimen/small_padding"
+                            android:singleLine="true"
+                            android:textColor="@color/colorprimary"
+                            android:textSize="@dimen/default_subtitle"
+                            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/default_height"
+            android:layout_marginHorizontal="@dimen/xl_padding"
+            android:layout_marginVertical="@dimen/xl_padding"
+            android:background="@drawable/bg_btn_accent_rounded"
+            android:fontFamily="@font/poppinsbold"
+            android:text="@string/daftar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbAgreement" />
+
+
+
+        <CheckBox
+            android:id="@+id/cbAgreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:text="Saya Menyetujui Persyaratan dan Privasi"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clBodyContainer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

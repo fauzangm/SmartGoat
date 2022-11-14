@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.louiscad.splitties:splitties-views-dsl-coordinatorlayout-android:3.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/daa31c4245aadb8cf1793e011b4e6531/transformed/jetified-splitties-views-dsl-coordinatorlayout-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/daa31c4245aadb8cf1793e011b4e6531/transformed/jetified-splitties-views-dsl-coordinatorlayout-debug/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/daa31c4245aadb8cf1793e011b4e6531/transformed/jetified-splitties-views-dsl-coordinatorlayout-debug/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-dsl-coordinatorlayout-android/3.0.0/e1b1dfd571e8646512ac0ff967a97597a780be33/splitties-views-dsl-coordinatorlayout-android-3.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-dsl-coordinatorlayout-android/3.0.0/4978d67b5899dc5ae00813283cacf62544dfa201/splitties-views-dsl-coordinatorlayout-android-3.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

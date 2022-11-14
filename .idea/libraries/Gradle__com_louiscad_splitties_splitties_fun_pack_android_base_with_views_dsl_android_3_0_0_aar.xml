@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.louiscad.splitties:splitties-fun-pack-android-base-with-views-dsl-android:3.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/683184fc63af1b1e5a6be66442b8403d/transformed/jetified-splitties-fun-pack-android-base-with-views-dsl-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/683184fc63af1b1e5a6be66442b8403d/transformed/jetified-splitties-fun-pack-android-base-with-views-dsl-debug/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/683184fc63af1b1e5a6be66442b8403d/transformed/jetified-splitties-fun-pack-android-base-with-views-dsl-debug/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-fun-pack-android-base-with-views-dsl-android/3.0.0/6aafdfbb4ea489787455ca1318ea74a29463bd56/splitties-fun-pack-android-base-with-views-dsl-android-3.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-fun-pack-android-base-with-views-dsl-android/3.0.0/6aafdfbb4ea489787455ca1318ea74a29463bd56/splitties-fun-pack-android-base-with-views-dsl-android-3.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.louiscad.splitties:splitties-views-dsl-android:3.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ac3188f8fb7acda0ba36f01ed56214b9/transformed/jetified-splitties-views-dsl-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac3188f8fb7acda0ba36f01ed56214b9/transformed/jetified-splitties-views-dsl-debug/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac3188f8fb7acda0ba36f01ed56214b9/transformed/jetified-splitties-views-dsl-debug/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-dsl-android/3.0.0/e0df155764478ea725d6af5babd24a416d270b47/splitties-views-dsl-android-3.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-dsl-android/3.0.0/c5c6b76ad32256f2078305d64c8f5607132cdedb/splitties-views-dsl-android-3.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

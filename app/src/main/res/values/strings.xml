@@ -31,4 +31,5 @@
     <string name="bobot_lahir">Bobot Lahir</string>
     <string name="saudara">Saudara</string>
     <string name="bobot_sekarang">Bobot Sekarang</string>
+    <string name="profile">Profile</string>
 </resources>

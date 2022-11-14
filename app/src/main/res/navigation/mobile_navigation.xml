@@ -27,6 +27,13 @@
         android:name="com.eduside.smartgoat.ui.home.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.eduside.smartgoat.ui.home.profiles.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
     <fragment
         android:id="@+id/dataKambingFragment"
         tools:layout="@layout/fragment_data_kambing"

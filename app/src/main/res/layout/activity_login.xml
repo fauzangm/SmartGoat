@@ -119,6 +119,7 @@
                             android:imeActionLabel="@string/login"
                             android:imeOptions="actionNext"
                             android:maxLines="1"
+                            android:inputType="text"
                             android:paddingStart="20dp"
                             android:paddingTop="@dimen/small_padding"
                             android:singleLine="true"

@@ -19,6 +19,9 @@ import com.eduside.smartgoat.ui.datakambing.DataKambingViewModel
 import com.eduside.smartgoat.ui.home.HomeActivity
 import com.eduside.smartgoat.ui.home.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import splitties.bundle.putExtras
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -95,4 +98,19 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
                 }
             }
         }
+
+    @Subscribe
+    fun onItemNpwpdClickedEventHandler(event: ItemDataKambingEvent) {
+        startActivity(Intent(this,DetailKambingActivity::class.java))
+    }
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
     }

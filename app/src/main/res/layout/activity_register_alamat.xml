@@ -39,7 +39,7 @@
             android:id="@+id/tvregist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registras"
+            android:text="@string/registrasi"
             android:fontFamily="@font/poppinsbold"
             android:textColor="@color/black"
             android:textSize="25dp"
@@ -151,6 +151,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tiFormLokasi"
                         android:layout_width="match_parent"
@@ -177,6 +178,14 @@
                             android:textSize="@dimen/default_subtitle"
                             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jalan/RtRw/Desa/Kec/Kode Pos"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textSize="13sp"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
 

@@ -21,4 +21,14 @@
     <string name="title_notifications">Notifications</string>
     <string name="kontrol">Kontrol</string>
     <string name="berita">Berita</string>
+    <string name="registrasi">Registrasi</string>
+    <string name="riwayat_keturunan">Riwayat Keturunan</string>
+    <string name="tanda">:</string>
+    <string name="rfid_induk_betina">RFID Induk Betina</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="warna">Warna</string>
+    <string name="bobot_lahir">Bobot Lahir</string>
+    <string name="saudara">Saudara</string>
+    <string name="bobot_sekarang">Bobot Sekarang</string>
 </resources>

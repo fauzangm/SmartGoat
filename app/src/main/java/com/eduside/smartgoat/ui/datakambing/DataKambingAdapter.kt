@@ -23,9 +23,9 @@ class DataKambingAdapter @Inject constructor() :
         val data = getItem(position)
         holder.binding.tvNamakambing.text = data.nama
         holder.binding.tvNokambing.text = data.nomor
-//        holder.binding.cvContainer.setOnClickListener {
-//            EventBus.getDefault().post(ItemNpwpdClickedEvent(npwpd))
-//        }
+        holder.binding.cvContainer.setOnClickListener {
+            EventBus.getDefault().post(ItemDataKambingEvent(data))
+        }
     }
 
     class ViewHolder(itemBinding: ItemListDataKambingBinding) :

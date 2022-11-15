@@ -7,11 +7,14 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.eduside.smartgoat.data.local.sp.DataRegistrasiCache
+import com.eduside.smartgoat.data.local.sp.model.FormatDataRegistrasi
 import com.eduside.smartgoat.databinding.ActivityRegisterDatadiriBinding
 import com.eduside.smartgoat.databinding.ActivitySplashBinding
 import com.eduside.smartgoat.ui.auth.login.LoginActivity
 import com.eduside.smartgoat.ui.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class RegisterDataDiriActivity : AppCompatActivity() {
@@ -21,6 +24,7 @@ class RegisterDataDiriActivity : AppCompatActivity() {
     private var email = ""
     private var pw = ""
     private var pwagain = ""
+    @Inject lateinit var dataRegistrasiCache: DataRegistrasiCache
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityRegisterDatadiriBinding.inflate(layoutInflater)
@@ -77,8 +81,21 @@ class RegisterDataDiriActivity : AppCompatActivity() {
                     .show()
                 return@setOnClickListener
             }
+
+            dataRegistrasiCache.dataRegistrasi = FormatDataRegistrasi(
+                email = email,
+                ttl = dataRegistrasiCache.dataRegistrasi?.ttl,
+                lokasi_kandang = dataRegistrasiCache.dataRegistrasi?.lokasi_kandang,
+                domisili = dataRegistrasiCache.dataRegistrasi?.domisili,
+                nodeid = 1,
+                name=name,
+                password = pw,
+                password_confirmation = pwagain
+            )
             startActivity(Intent(this, RegisterAlamatActivity::class.java))
         }
+
+
 
         binding.btnTologin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))

@@ -3,15 +3,22 @@ package com.eduside.smartgoat.ui.auth.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.eduside.smartgoat.data.local.db.entities.DatakambingVo
 import com.eduside.smartgoat.data.local.sp.SessionLogin
 import com.eduside.smartgoat.data.local.sp.model.FormatDataLogin
 import com.eduside.smartgoat.databinding.ActivityLoginBinding
+import com.eduside.smartgoat.ui.auth.register.DialogSuccesRegist
 import com.eduside.smartgoat.ui.auth.register.RegisterDataDiriActivity
 import com.eduside.smartgoat.ui.home.MainActivity
+import com.eduside.smartgoat.util.showError
+import com.eduside.smartgoat.util.showLoading
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import splitties.activities.start
 import javax.inject.Inject
@@ -39,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-
+        binding.pbSubmitRegistrasi.visibility = View.GONE
         initAction()
         initObserve()
 
@@ -68,6 +75,21 @@ class LoginActivity : AppCompatActivity() {
                 nama = "Kambing quin"
             )
         )
+
+        viewmodel.postLogError.observe(this) {
+//            showError(this, AlertDialog)
+            val bottomSheetFragment = DialogGagalLogin()
+            bottomSheetFragment.show(supportFragmentManager,"DialogGagal")
+        }
+        viewmodel.postLogLoading.observe(this) {
+            binding.pbSubmitRegistrasi.visibility = View.VISIBLE
+            showLoading(this, binding.pbSubmitRegistrasi, it)
+        }
+        viewmodel.postLogResponse.observe(this) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            start<MainActivity>()
+            finish()
+        }
     }
 
     private fun initAction() {
@@ -92,11 +114,15 @@ class LoginActivity : AppCompatActivity() {
                     .show()
                 return@setOnClickListener
             }
-            sessionLogin.put(SessionLogin.PREF_IS_LOGIN, true)
-            sessionLogin.dataLogin = FormatDataLogin(name = email, password = pw)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            start<MainActivity>()
-            finish()
+            binding.pbSubmitRegistrasi.visibility = View.VISIBLE
+            sessionLogin.dataLogin = FormatDataLogin(email = email, password = pw)
+
+            viewmodel.postLogin(
+                Gson().fromJson(
+                    Gson().toJson(sessionLogin.dataLogin),
+                    JsonObject::class.java
+                )
+            )
 
 
         }
@@ -106,7 +132,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (sessionLogin.getBoolean(SessionLogin.PREF_IS_LOGIN) == true) {
-
             Intent(this@LoginActivity, MainActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(it)

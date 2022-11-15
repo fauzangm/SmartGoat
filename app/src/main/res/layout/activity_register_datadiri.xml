@@ -39,7 +39,7 @@
             android:id="@+id/tvregist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registras"
+            android:text="@string/registrasi"
             android:fontFamily="@font/poppinsbold"
             android:textColor="@color/black"
             android:textSize="25dp"

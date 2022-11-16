@@ -28,6 +28,10 @@ interface ApiServices {
         @Body body: JsonObject
     ): Response<PostLoginResponse>
 
+    // GET SENSOR
+    @GET("nodes/sensor/all")
+    suspend fun getSensor(): Response<GetSensorResponse>
+
 
 
 }

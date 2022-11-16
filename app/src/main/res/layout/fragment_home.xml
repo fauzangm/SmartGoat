@@ -87,6 +87,7 @@
                 android:layout_gravity="center_horizontal"/>
 
             <TextView
+                android:id="@+id/tvSuhu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:height="65dp"
@@ -104,6 +105,7 @@
                 android:layout_gravity="start|center"/>
 
             <TextView
+                android:id="@+id/tv_tanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Minggu,16 November 2022"
@@ -146,6 +148,7 @@
                 android:layout_margin="40dp"/>
 
             <TextView
+                android:id="@+id/tv_kelembapan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/kelembapan_50"
@@ -165,6 +168,7 @@
                 android:layout_marginBottom="40dp"/>
 
             <TextView
+                android:id="@+id/tv_intensitas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="200 Lux"
@@ -195,6 +199,7 @@
 
 
             <TextView
+                android:id="@+id/tvAMonia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Amoniak"

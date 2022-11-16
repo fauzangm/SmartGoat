@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/bg_primary_bottom_top.xml" value="0.1735" />
         <entry key="app/src/main/res/layout/activity_detail_kambing.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20989583333333334" />
         <entry key="app/src/main/res/layout/activity_register_alamat.xml" value="0.5" />

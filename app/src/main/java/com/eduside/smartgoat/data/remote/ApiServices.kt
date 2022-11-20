@@ -22,16 +22,27 @@ interface ApiServices {
 //        @Field("password_confirmation")password_confirmation: String?,
     ): Response<PostRegistResponse>
 
-    // Login
-    @POST("auth/login")
-    suspend fun postLogin(
+    // Put TImbangan
+    @PUT("nodes/switch/timbangan")
+    suspend fun putTimbangan(
         @Body body: JsonObject
-    ): Response<PostLoginResponse>
+    ): Response<PutTimbanganResponse>
+
+    // Put Fan
+    @PUT("nodes/switch/exhouse")
+    suspend fun putFan(
+        @Body body: JsonObject
+    ): Response<PutTimbanganResponse>
 
     // GET SENSOR
     @GET("nodes/sensor/all")
     suspend fun getSensor(): Response<GetSensorResponse>
 
 
+    // Login
+    @POST("auth/login")
+    suspend fun postLogin(
+        @Body body: JsonObject
+    ): Response<PostLoginResponse>
 
 }

@@ -32,4 +32,6 @@
     <string name="saudara">Saudara</string>
     <string name="bobot_sekarang">Bobot Sekarang</string>
     <string name="profile">Profile</string>
+    <string name="messangeKonsentrat">Jadi konsentrat yang dibutuhkan oleh kambing No. 001 dengan bobot 30 Kg dan umur 10 bulan adalah sebesar 600 Gram per hari atau setara 2% dari bobot kambing</string>
+    <string name="message_hijauan">Jadi hijauan yang dibutuhkan oleh kambing No. 001 dengan bobot 30 Kg dan umur 10 bulan adalah sebesar 3 Kilogram per hari atau setara 10% dari bobot kambing</string>
 </resources>

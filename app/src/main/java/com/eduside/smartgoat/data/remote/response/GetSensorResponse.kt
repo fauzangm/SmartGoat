@@ -5,16 +5,16 @@ import com.google.gson.annotations.SerializedName
 data class GetSensorResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataSensorItem?>? = null,
+	val data: DataSensor? = null,
 
 	@field:SerializedName("message")
-	val message: String? = null,
+	val message: List<String?>? = null,
 
 	@field:SerializedName("status")
 	val status: Boolean? = null
 )
 
-data class DataSensorItem(
+data class DataSensor(
 
 	@field:SerializedName("intensitas")
 	val intensitas: String? = null,
@@ -24,9 +24,6 @@ data class DataSensorItem(
 
 	@field:SerializedName("amonia")
 	val amonia: String? = null,
-
-	@field:SerializedName("created_at")
-	val createdAt: String? = null,
 
 	@field:SerializedName("kelembapan")
 	val kelembapan: String? = null

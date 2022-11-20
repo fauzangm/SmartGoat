@@ -42,7 +42,9 @@ class DetailKambingActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun iniObserve() {

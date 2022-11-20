@@ -54,7 +54,7 @@
         android:fontFamily="@font/poppinsmedium"
         android:textColor="@color/black"
         android:gravity="center_horizontal"
-        android:text="Gagal Terhubung Server harap mengisi\ndata dengan benar\natau cek koneksi internet anda"
+        android:text="Gagal Terhubung Server harap mengisi \ndata dengan benar\natau cek koneksi internet anda"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

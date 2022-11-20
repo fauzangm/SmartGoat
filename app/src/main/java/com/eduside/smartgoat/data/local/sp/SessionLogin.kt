@@ -15,10 +15,12 @@ class SessionLogin @Inject constructor(
     @ApplicationContext val context: Context
 ) {
     companion object {
-        private const val PREF_NAME = "dataLoginBapendaWPCache"
+        private const val PREF_NAME = "dataLoginSmartGoatCache"
         private const val DATA_LOGIIN = "dataLoginCache"
         val PREF_IS_LOGIN = "LOGIN"
         val TOKEN = "TOKEN"
+        val MODETIMBANGAN = "MODE"
+        val MODEFAN = "MODE"
     }
 
     private var pref: SharedPreferences
@@ -56,7 +58,7 @@ class SessionLogin @Inject constructor(
             .apply()
     }
 
-    fun getBoolean(key: String): Boolean? {
+    fun getBoolean(key: String): Boolean {
         return pref.getBoolean(key, false)
     }
 

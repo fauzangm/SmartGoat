@@ -20,7 +20,7 @@ class AccessTokenInterceptor(
             chain.proceed(authenticatedRequest)
         }
 
-        if ((response.code == 401 || response.code == 403)) {
+        if ((response.code == 401 || response.code == 403 )) {
             if(tokenProvider.refreshToken()) {
                 val updatedToken = tokenProvider.token()
 

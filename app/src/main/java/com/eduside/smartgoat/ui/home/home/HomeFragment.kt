@@ -15,10 +15,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.eduside.smartgoat.R
 import com.eduside.smartgoat.databinding.FragmentHomeBinding
+import com.eduside.smartgoat.ui.DialogGagalGet
 import com.eduside.smartgoat.ui.auth.AuthViewModel
 import com.eduside.smartgoat.ui.auth.login.DialogGagalLogin
 import com.eduside.smartgoat.ui.auth.register.DialogSuccesRegist
 import com.eduside.smartgoat.ui.datakambing.DataKambingActivity
+import com.eduside.smartgoat.ui.komposisi.KomposisiActivity
 import com.eduside.smartgoat.util.DATETIME_FULL_FORMAT
 import com.eduside.smartgoat.util.formatStringToTanggal
 import com.eduside.smartgoat.util.showError
@@ -33,6 +35,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val viewmodel: HomeViewModel by viewModels()
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -53,7 +56,7 @@ class HomeFragment : Fragment() {
 
         try {
             initUi()
-        } catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
@@ -61,10 +64,15 @@ class HomeFragment : Fragment() {
     private fun initUi() {
 
         val current = LocalDateTime.now()
-        val selectedDate = LocalDate(current.year, current.monthOfYear, current.dayOfMonth).toString() + "T00:00:00Z"
+        val selectedDate = LocalDate(
+            current.year,
+            current.monthOfYear,
+            current.dayOfMonth
+        ).toString() + "T00:00:00Z"
         formatStringToTanggal(selectedDate, DATETIME_FULL_FORMAT).uppercase()
 //        Log.e("current data","$current dan $selectedDate dan ${formatStringToTanggal(selectedDate, DATETIME_FULL_FORMAT).uppercase()}")
-        binding.tvTanggal.text = formatStringToTanggal(selectedDate, DATETIME_FULL_FORMAT).uppercase()
+        binding.tvTanggal.text =
+            formatStringToTanggal(selectedDate, DATETIME_FULL_FORMAT).uppercase()
         iniAction()
         initObserve()
     }
@@ -72,8 +80,13 @@ class HomeFragment : Fragment() {
     private fun initObserve() {
 
         viewmodel.getRegError.observe(viewLifecycleOwner) {
-            val bottomSheetFragment = DialogGagalLogin()
-            activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            val bottomSheetFragment = DialogGagalGet()
+            activity?.supportFragmentManager?.let { it1 ->
+                bottomSheetFragment.show(
+                    it1,
+                    "DialogGagal"
+                )
+            }
         }
         viewmodel.getRegLoading.observe(viewLifecycleOwner) {
 //            binding.pbSubmitRegistrasi.visibility = View.VISIBLE
@@ -81,21 +94,29 @@ class HomeFragment : Fragment() {
         }
         viewmodel.getRegResponse.observe(viewLifecycleOwner) {
 
-            it.data?.forEach { data->
-                binding.tvSuhu.text = data?.suhu?.toFloat()?.toInt().toString()+"°"
-                binding.tvIntensitas.text = data?.intensitas.toString()+" Lux"
-                binding.tvKelembapan.text = "Kelembapan "+data?.kelembapan?.toFloat()?.toInt().toString()+"%"
-                binding.tvAMonia.text = data?.amonia.toString()
-            }
+            binding.tvSuhu.text = it.data?.suhu?.toFloat()?.toInt().toString() + "°"
+            binding.tvIntensitas.text = it.data?.intensitas.toString() + " Lux"
+            binding.tvKelembapan.text = it.message!![2]
+            binding.tvAMonia.text = it.message[0]
+            binding.tvStatus.text = it.message[1]
+
 
         }
     }
 
     private fun iniAction() {
         viewmodel.getSensor()
-        binding.btnKambing.setOnClickListener { view ->
-          startActivity(Intent(requireActivity(),DataKambingActivity::class.java))
+        binding.btnKambing.setOnClickListener {
+            val intent = Intent(requireActivity(), DataKambingActivity::class.java)
+            intent.putExtra(DataKambingActivity.MOVE,"1")
+            startActivity(intent)
 
+        }
+
+        binding.btnKomposisi.setOnClickListener {
+            val intent = Intent(requireActivity(), DataKambingActivity::class.java)
+            intent.putExtra(DataKambingActivity.MOVE,"2")
+            startActivity(intent)
         }
     }
 

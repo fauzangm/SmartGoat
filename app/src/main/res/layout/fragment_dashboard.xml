@@ -1,48 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/containerTop"
-            android:layout_width="match_parent"
+            android:id="@+id/clHeaderContainer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_primary_kontrol_top"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
-
             <ImageView
-                android:layout_width="wrap_content"
                 android:layout_height="180dp"
-                android:src="@drawable/img_bgkontrol"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:height="200dp"
+                android:src="@drawable/img_bgkontrol"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/imgtextheader"
-                android:layout_width="wrap_content"
+                android:height="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="45dp"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:fontFamily="@font/poppinsextrabold"
                 android:gravity="end"
+                android:id="@+id/imgtextheader"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="45dp"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
                 android:text="Kontrol\nKandang"
                 android:textColor="@color/colorbrowndark"
                 android:textSize="25dp"
@@ -51,367 +48,421 @@
 
             <ImageView
                 android:id="@+id/img_headgoat"
-                android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="52dp"
                 android:layout_marginTop="56dp"
+                android:layout_width="50dp"
                 android:src="@mipmap/img_head_goat_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsextrabold"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_width="wrap_content"
                 android:text="Smart Goat"
                 android:textColor="@color/colorbrowndark"
-                app:layout_constraintTop_toBottomOf="@id/img_headgoat"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="35dp"/>
+                app:layout_constraintTop_toBottomOf="@id/img_headgoat" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+            <ScrollView
+                android:id="@+id/svBodyContainer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clHeaderContainer">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clBodyContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/small_padding"
+                    android:paddingVertical="@dimen/default_padding">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clTimbangan"
+                                android:layout_width="0dp"
+                                android:layout_height="187dp"
+                                android:layout_marginHorizontal="@dimen/small_margin"
+                                android:layout_marginTop="30dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_primary_kontrol_body"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/tv_timbangan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="Timbangan"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:src="@mipmap/img_vector_down"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:src="@mipmap/img_oval"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/tv_kiloGram"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppinsmedium"
+                                    android:text="0 Kg"
+                                    android:textColor="@color/black"
+                                    android:textSize="30dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintStart_toStartOf="parent"
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/switchTimbangan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:track="@drawable/track"
+                                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="Off"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/switchTimbangan" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="On"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/switchTimbangan" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_marginHorizontal="@dimen/small_margin"
+                                android:id="@+id/clLampu"
+                                android:layout_width="0dp"
+                                android:layout_height="187dp"
+                                android:layout_marginTop="30dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_primary_kontrol_body"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/tvLampu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="Lampu"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:src="@mipmap/img_vector_down"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:src="@mipmap/img_oval"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/imgLamp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppinsmedium"
+                                    android:src="@mipmap/img_lamp"
+                                    android:textColor="@color/black"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/switchLampu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:track="@drawable/track"
+                                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="Off"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/switchLampu" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="On"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/switchLampu" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2">
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clexhaustfan"
+                                android:layout_width="0dp"
+                                android:layout_height="187dp"
+                                android:layout_marginHorizontal="@dimen/small_margin"
+                                android:layout_marginTop="30dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_primary_kontrol_body"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/tvExhausFan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="Exhaust Fan"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:src="@mipmap/img_vector_down"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:src="@mipmap/img_oval"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppinsmedium"
+                                    android:src="@mipmap/img_exhaust_fan"
+                                    android:textColor="@color/black"
+                                    android:textSize="30dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/switchFan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:track="@drawable/track"
+                                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="Off"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/switchFan" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="On"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/switchFan" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_marginHorizontal="@dimen/small_margin"
+                                android:id="@+id/clCctv"
+                                android:layout_width="0dp"
+                                android:layout_height="187dp"
+                                android:layout_marginTop="30dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_primary_kontrol_body"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                    android:id="@+id/tvCctv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:text="CCTV"
+                                    android:textColor="@color/colorbrowndark"
+                                    android:textSize="13sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:src="@mipmap/img_vector_down"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:src="@mipmap/img_oval"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppinsmedium"
+                                    android:src="@mipmap/img_cctv"
+                                    android:textColor="@color/black"
+                                    android:textSize="30dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/pbSubmitRegistrasi"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            android:id="@+id/containerBody">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clTimbangan"
-                android:layout_width="142dp"
-                android:layout_height="187dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/bg_primary_kontrol_body"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" >
-
-                <TextView
-                    android:id="@+id/tv_timbangan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Timbangan"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textColor="@color/colorbrowndark"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="15dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="13dp"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:src="@mipmap/img_vector_down"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="15dp"/>
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@mipmap/img_oval"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_kiloGram"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:text="0 Kg"
-                    android:textColor="@color/black"
-                    android:textSize="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/switchTimbangan"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    app:track="@drawable/track"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-                <TextView
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/switchTimbangan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorbrowndark"
-                    android:text="Off"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textSize="13sp"/>
-
-                <TextView
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/switchTimbangan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorbrowndark"
-                    android:text="On"
-                    android:layout_marginStart="10dp"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textSize="13sp"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clLampu"
-                android:layout_width="142dp"
-                android:layout_height="187dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/bg_primary_kontrol_body"
-                app:layout_constraintStart_toEndOf="@id/clTimbangan"
-                app:layout_constraintTop_toTopOf="parent" >
-
-                <TextView
-                    android:id="@+id/tvLampu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lampu"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textColor="@color/colorbrowndark"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="15dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="13sp"/>
-
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:src="@mipmap/img_vector_down"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="15dp"/>
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@mipmap/img_oval"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/imgLamp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:src="@mipmap/img_lamp"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/switchLampu"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    app:track="@drawable/track"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-                <TextView
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/switchLampu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorbrowndark"
-                    android:text="Off"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textSize="13sp"/>
-
-                <TextView
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginStart="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/switchLampu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorbrowndark"
-                    android:text="On"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textSize="13sp"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clexhaustfan"
-                android:layout_width="142dp"
-                android:layout_height="187dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/bg_primary_kontrol_body"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/clTimbangan" >
-
-                <TextView
-                    android:id="@+id/tvExhausFan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Exhaust Fan"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textColor="@color/colorbrowndark"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="15dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="13sp"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:src="@mipmap/img_vector_down"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="15dp"/>
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@mipmap/img_oval"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:src="@mipmap/img_exhaust_fan"
-                    android:textColor="@color/black"
-                    android:textSize="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/switchFan"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    app:track="@drawable/track"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-                <TextView
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/switchFan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorbrowndark"
-                    android:text="Off"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textSize="13sp"/>
-
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/switchFan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorbrowndark"
-                    android:text="On"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textSize="13sp"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clCctv"
-                android:layout_width="142dp"
-                android:layout_height="187dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="28dp"
-                android:background="@drawable/bg_primary_kontrol_body"
-                app:layout_constraintStart_toEndOf="@id/clexhaustfan"
-                app:layout_constraintTop_toBottomOf="@id/clLampu" >
-
-                <TextView
-                    android:id="@+id/tvCctv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CCTV"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textColor="@color/colorbrowndark"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="15dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="13sp"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:src="@mipmap/img_vector_down"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="15dp"/>
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@mipmap/img_oval"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:src="@mipmap/img_cctv"
-                    android:textColor="@color/black"
-                    android:textSize="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+</layout>
 
-</ScrollView>
+
+
+

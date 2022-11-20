@@ -18,10 +18,12 @@ import com.eduside.smartgoat.ui.auth.register.RegisterDataDiriActivity
 import com.eduside.smartgoat.ui.datakambing.DataKambingViewModel
 import com.eduside.smartgoat.ui.home.HomeActivity
 import com.eduside.smartgoat.ui.home.MainActivity
+import com.eduside.smartgoat.ui.komposisi.KomposisiActivity
 import dagger.hilt.android.AndroidEntryPoint
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import splitties.bundle.putExtras
+import splitties.resources.int
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -29,6 +31,7 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
     private var _binding: FragmentDataKambingBinding? = null
     private val binding get() = _binding!!
     private val viewmodel: DataKambingViewModel by viewModels()
+    private var move = ""
     @Inject
     lateinit var adapter : DataKambingAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +47,11 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
     }
 
     private fun initUi() {
+
+        if (intent!=null){
+            move = intent.getStringExtra(MOVE).toString()
+        }
+
         binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener,
             android.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -62,6 +70,14 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
         binding.rvdatakambing.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvdatakambing.adapter = adapter
 
+        initAction()
+
+    }
+
+    private fun initAction(){
+        binding.imgback.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun iniObserve() {
@@ -69,6 +85,10 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
             adapter.submitList(data)
             Log.e("datakambing",data.toString())
         }
+    }
+
+    companion object{
+        const val MOVE ="MOVE"
     }
 
 
@@ -101,7 +121,13 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
 
     @Subscribe
     fun onItemNpwpdClickedEventHandler(event: ItemDataKambingEvent) {
-        startActivity(Intent(this,DetailKambingActivity::class.java))
+        if (move == "1"){
+            startActivity(Intent(this,DetailKambingActivity::class.java))
+        }
+
+        if (move == "2"){
+            startActivity(Intent(this,KomposisiActivity::class.java))
+        }
     }
 
     override fun onStart() {

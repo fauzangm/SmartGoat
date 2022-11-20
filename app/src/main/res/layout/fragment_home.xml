@@ -127,9 +127,12 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvStatus"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/status_normal"
+                tools:text="Normal"
+                android:gravity="center"
+                android:textSize="13sp"
                 android:textColor="@color/green"
                 android:shadowDx="1"
                 android:shadowDy="1"
@@ -151,7 +154,7 @@
                 android:id="@+id/tv_kelembapan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/kelembapan_50"
+                tools:text="@string/kelembapan_50"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppinslight"
                 android:textSize="10sp"
@@ -171,7 +174,7 @@
                 android:id="@+id/tv_intensitas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="200 Lux"
+                tools:text="200 Lux"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppinslight"
                 android:textSize="10dp"
@@ -200,13 +203,13 @@
 
             <TextView
                 android:id="@+id/tvAMonia"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
+                android:gravity="center"
                 android:layout_height="wrap_content"
-                android:text="Amoniak"
+                tools:text="Amoniak Normal"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppinslight"
                 android:textSize="10dp"
-                android:layout_marginEnd="40dp"
                 android:shadowColor="@color/white"
                 android:layout_gravity="bottom|end"
                 android:layout_marginBottom="20dp"/>

@@ -11,7 +11,7 @@ class DataRegistrasiCache @Inject constructor(
     @ApplicationContext val _context: Context
 ) {
     companion object {
-        private const val PREF_NAME = "dataRegistrasiBapendaWPCache"
+        private const val PREF_NAME = "dataRegistrasiSmartGoatCache"
         private const val DATA_REGISTRASI = "dataRegistrasiCache"
     }
 

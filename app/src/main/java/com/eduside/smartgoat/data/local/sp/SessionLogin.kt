@@ -21,6 +21,8 @@ class SessionLogin @Inject constructor(
         val TOKEN = "TOKEN"
         val MODETIMBANGAN = "MODE"
         val MODEFAN = "MODE"
+        val MODELAMP = "MODE"
+        val CURRENTPB = "CURRENTPB"
     }
 
     private var pref: SharedPreferences
@@ -51,6 +53,15 @@ class SessionLogin @Inject constructor(
 
     fun getString(key: String): String? {
         return pref.getString(key, "")
+    }
+
+    fun put(key: String, value: Int) {
+        editor.putInt(key, value)
+            .apply()
+    }
+
+    fun getInt(key: String): Int? {
+        return pref.getInt(key, 0)
     }
 
     fun put(key: String, value: Boolean) {

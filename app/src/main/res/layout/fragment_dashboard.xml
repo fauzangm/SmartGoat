@@ -3,69 +3,183 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clHeaderContainer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_primary_kontrol_top"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/cltranparan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            tools:visibility="visible">
+
 
             <ImageView
-                android:layout_height="180dp"
-                android:layout_width="wrap_content"
-                android:src="@drawable/img_bgkontrol"
+                android:id="@+id/img_tranpaaran"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/tranparankontrol"/>
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginBottom="158dp"
+                android:src="@drawable/img_lamp"
+                app:layout_constraintBottom_toTopOf="@id/progres_intentsitas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <SeekBar
+                android:id="@+id/progres_intentsitas"
+                android:layout_width="match_parent"
+                android:scaleY="2"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:indeterminate="false"
+                android:rotation="270"
+                android:max="100"
+                android:padding="6dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/bg_progres_seekbar"
+                android:thumb="@drawable/bg_sekkbar_thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:height="200dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:fontFamily="@font/poppinsextrabold"
-                android:gravity="end"
-                android:id="@+id/imgtextheader"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="45dp"
-                android:layout_marginTop="40dp"
-                android:layout_width="wrap_content"
-                android:text="Kontrol\nKandang"
-                android:textColor="@color/colorbrowndark"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--                android:progressDrawable="@drawable/bg_progres_seekbar"-->
+<!--                android:thumb="@drawable/bg_sekkbar_thumb"-->
+<!--                android:scaleY="5"-->
+<!--                android:layout_marginStart="50dp"-->
+<!--                android:layout_marginEnd="50dp"-->
+<!--                android:id="@+id/progres_intentsitas"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                android:max="100"-->
+<!--                android:progress="0"-->
+<!--                android:indeterminate="false"-->
+<!--                />-->
 
-            <ImageView
-                android:id="@+id/img_headgoat"
-                android:layout_height="40dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="56dp"
-                android:layout_width="50dp"
-                android:src="@mipmap/img_head_goat_bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <ProgressBar-->
+<!--                android:id="@+id/progres_intentsitas"-->
+<!--                style="?android:attr/progressBarStyleHorizontal"-->
+<!--                android:layout_width="185dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:scaleY="7"-->
+<!--                android:background="@drawable/bg_btn_accent_rounded"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-            <TextView
-                android:fontFamily="@font/poppinsextrabold"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:layout_width="wrap_content"
-                android:text="Smart Goat"
-                android:textColor="@color/colorbrowndark"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/img_headgoat" />
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/btn_plus"-->
+<!--                android:text="+"-->
+
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="24dp"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:background="@drawable/bg_btn_accent_rounded"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/progres_intentsitas"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/btn_min"-->
+<!--                android:text="-"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="24dp"-->
+<!--                android:backgroundTint="@android:color/darker_gray"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:background="@drawable/bg_btn_accent_rounded"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/progres_intentsitas"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"/>-->
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="gone"
+            android:id="@+id/clnotranparan">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clHeaderContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_primary_kontrol_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_height="180dp"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/img_bgkontrol"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:height="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:fontFamily="@font/poppinsextrabold"
+                    android:gravity="end"
+                    android:id="@+id/imgtextheader"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_width="wrap_content"
+                    android:text="Kontrol\nKandang"
+                    android:textColor="@color/colorbrowndark"
+                    android:textSize="25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_headgoat"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_width="50dp"
+                    android:src="@mipmap/img_head_goat_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:fontFamily="@font/poppinsextrabold"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_width="wrap_content"
+                    android:text="Smart Goat"
+                    android:textColor="@color/colorbrowndark"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_headgoat" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <ScrollView
                 android:id="@+id/svBodyContainer"
                 android:layout_width="0dp"
@@ -393,7 +507,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent">
 
-                            <TextView
+                                <TextView
                                     android:id="@+id/tvCctv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -447,6 +561,13 @@
 
             </ScrollView>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
         <ProgressBar
             android:id="@+id/pbSubmitRegistrasi"
             style="?android:attr/progressBarStyle"
@@ -460,6 +581,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </layout>
 

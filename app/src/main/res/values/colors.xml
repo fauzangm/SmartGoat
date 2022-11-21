@@ -12,5 +12,6 @@
     <color name="colorprimarylight">#FCF2DB</color>
     <color name="colorbrown">#E2AF64</color>
     <color name="colorbrowndark">#C36A2D</color>
+    <color name="colorgreylamp">#86000000</color>
 
 </resources>

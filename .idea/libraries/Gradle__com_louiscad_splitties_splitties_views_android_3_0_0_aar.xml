@@ -1,9 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-views-android:3.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/475385ffe8fe154e4371b59c0eb0c9de/transformed/jetified-splitties-views-debug/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/475385ffe8fe154e4371b59c0eb0c9de/transformed/jetified-splitties-views-debug/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/475385ffe8fe154e4371b59c0eb0c9de/transformed/jetified-splitties-views-debug/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d9789de22ff4918e54b5a9261e2b072c/transformed/jetified-splitties-views-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d9789de22ff4918e54b5a9261e2b072c/transformed/jetified-splitties-views-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-android/3.0.0/46916b750166c5e2696ba83076aa2938e4f750e1/splitties-views-android-3.0.0-javadoc.jar!/" />

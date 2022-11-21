@@ -1,9 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-views-selectable-appcompat-android:3.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e0638341d96db214097c5926208c3081/transformed/jetified-splitties-views-selectable-appcompat-debug/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e0638341d96db214097c5926208c3081/transformed/jetified-splitties-views-selectable-appcompat-debug/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e0638341d96db214097c5926208c3081/transformed/jetified-splitties-views-selectable-appcompat-debug/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f15e45650646c5c9c1cf954cbc0e3af8/transformed/jetified-splitties-views-selectable-appcompat-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f15e45650646c5c9c1cf954cbc0e3af8/transformed/jetified-splitties-views-selectable-appcompat-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-selectable-appcompat-android/3.0.0/a5c8673bf6104a8d4e67e64ed6b82672f4575c3/splitties-views-selectable-appcompat-android-3.0.0-javadoc.jar!/" />

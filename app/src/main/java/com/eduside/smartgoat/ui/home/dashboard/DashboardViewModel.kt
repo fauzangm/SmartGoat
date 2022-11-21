@@ -3,6 +3,9 @@ package com.eduside.smartgoat.ui.home.dashboard
 import androidx.lifecycle.*
 import com.eduside.smartgoat.data.repository.Fan.FanRepository
 import com.eduside.smartgoat.data.repository.Fan.PutFanResult
+import com.eduside.smartgoat.data.repository.Lampu.PutDimmerResult
+import com.eduside.smartgoat.data.repository.Lampu.PutLampuResult
+import com.eduside.smartgoat.data.repository.Lampu.SwLampuRepository
 import com.eduside.smartgoat.data.repository.Timbangan.PutTImbanganResult
 import com.eduside.smartgoat.data.repository.Timbangan.TimbanganRepository
 import com.eduside.smartgoat.data.repository.sensor.GetSensorResult
@@ -15,7 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
     private val timbanganRepository: TimbanganRepository,
-    private val fanRepository: FanRepository
+    private val fanRepository: FanRepository,
+    private val swLampuRepository: SwLampuRepository
 ) : ViewModel()  {
 
     private val putRegResult = MutableLiveData<PutTImbanganResult>()
@@ -35,6 +39,26 @@ class DashboardViewModel @Inject constructor(
     fun putFan(requestBody: JsonObject) {
         viewModelScope.launch {
             putFanRegResult.postValue(fanRepository.putFan(requestBody))
+        }
+    }
+
+    private val putSwLampuRegResult = MutableLiveData<PutLampuResult>()
+    val putSwLampuRegError = Transformations.switchMap(putSwLampuRegResult) { it.error }
+    val putSwLampuRegLoading = Transformations.switchMap(putSwLampuRegResult) { it.loading }
+    val putSwLampuRegResponse = Transformations.switchMap(putSwLampuRegResult) { it.reqPutLampu }
+    fun putSwLampu(requestBody: JsonObject) {
+        viewModelScope.launch {
+            putSwLampuRegResult.postValue(swLampuRepository.putSwLampu(requestBody))
+        }
+    }
+
+    private val putDimmerLampuRegResult = MutableLiveData<PutDimmerResult>()
+    val putDimmerLampuRegError = Transformations.switchMap(putDimmerLampuRegResult) { it.error }
+    val putDimmerLampuRegLoading = Transformations.switchMap(putDimmerLampuRegResult) { it.loading }
+    val putDimmerLampuRegResponse = Transformations.switchMap(putDimmerLampuRegResult) { it.reqPutDimmer }
+    fun putDimmerLampu(requestBody: JsonObject) {
+        viewModelScope.launch {
+            putDimmerLampuRegResult.postValue(swLampuRepository.putDimmerLampu(requestBody))
         }
     }
 }

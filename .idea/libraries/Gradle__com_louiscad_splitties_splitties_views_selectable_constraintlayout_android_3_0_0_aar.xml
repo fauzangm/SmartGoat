@@ -1,9 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-views-selectable-constraintlayout-android:3.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/13dccee5a5393f229629e0ade6ce744d/transformed/jetified-splitties-views-selectable-constraintlayout-debug/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/13dccee5a5393f229629e0ade6ce744d/transformed/jetified-splitties-views-selectable-constraintlayout-debug/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/13dccee5a5393f229629e0ade6ce744d/transformed/jetified-splitties-views-selectable-constraintlayout-debug/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e64403e5764b8df56a995ab4254b66d2/transformed/jetified-splitties-views-selectable-constraintlayout-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e64403e5764b8df56a995ab4254b66d2/transformed/jetified-splitties-views-selectable-constraintlayout-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-selectable-constraintlayout-android/3.0.0/de1ac78aaabccd0784bd10d6dc32c421074a97ad/splitties-views-selectable-constraintlayout-android-3.0.0-javadoc.jar!/" />

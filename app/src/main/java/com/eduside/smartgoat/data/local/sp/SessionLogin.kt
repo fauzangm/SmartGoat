@@ -19,10 +19,6 @@ class SessionLogin @Inject constructor(
         private const val DATA_LOGIIN = "dataLoginCache"
         val PREF_IS_LOGIN = "LOGIN"
         val TOKEN = "TOKEN"
-        val MODETIMBANGAN = "MODE"
-        val MODEFAN = "MODE"
-        val MODELAMP = "MODE"
-        val CURRENTPB = "CURRENTPB"
     }
 
     private var pref: SharedPreferences

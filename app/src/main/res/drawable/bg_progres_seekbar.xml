@@ -8,7 +8,7 @@
             <solid android:color="@color/colorgreylamp"/>
             <size android:height="50dp"/>
             <corners android:radius="20dp"/>
-            <stroke android:color="@color/white"
+            <stroke android:color="@color/colorgreylamp"
                 android:width="3dp"/>
         </shape>
     </item>

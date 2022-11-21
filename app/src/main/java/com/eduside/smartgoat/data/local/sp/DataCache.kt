@@ -3,6 +3,7 @@ package com.eduside.smartgoat.data.local.sp
 import android.content.Context
 import android.content.SharedPreferences
 import com.eduside.smartgoat.data.local.sp.model.FormatDataRegistrasi
+import com.eduside.smartgoat.data.local.sp.model.FormatDataSwitch
 import com.eduside.smartgoat.data.local.sp.model.FormatDataTimbangan
 import com.google.gson.Gson
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -14,6 +15,7 @@ class DataCache @Inject constructor(
     companion object {
         private const val PREF_NAME = "dataSmarGoat"
         private const val DATA_CACHE = "dataSmartGoat"
+        private const val DATA_CACHESWITCH = "dataSwitchSmartGoat"
     }
 
     private var pref: SharedPreferences
@@ -31,6 +33,13 @@ class DataCache @Inject constructor(
         get() {
             val data: String? = pref.getString(DATA_CACHE, null)
             return if(data.isNullOrBlank()){ null } else { Gson().fromJson(data, FormatDataTimbangan::class.java) }
+        }
+
+    var dataSwitch: FormatDataSwitch?
+        set(value) = pref.edit().putString(DATA_CACHESWITCH, Gson().toJson(value)).apply()
+        get() {
+            val data: String? = pref.getString(DATA_CACHESWITCH, null)
+            return if(data.isNullOrBlank()){ null } else { Gson().fromJson(data, FormatDataSwitch::class.java) }
         }
 
 }

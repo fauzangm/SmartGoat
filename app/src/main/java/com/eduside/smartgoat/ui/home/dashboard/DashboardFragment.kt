@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.eduside.smartgoat.data.local.sp.DataCache
 import com.eduside.smartgoat.data.local.sp.SessionLogin
 import com.eduside.smartgoat.data.local.sp.model.FormatDataRegistrasi
+import com.eduside.smartgoat.data.local.sp.model.FormatDataSwitch
 import com.eduside.smartgoat.data.local.sp.model.FormatDataTimbangan
 import com.eduside.smartgoat.databinding.FragmentDashboardBinding
 import com.eduside.smartgoat.ui.DialogGagalGet
@@ -33,6 +34,9 @@ import javax.inject.Inject
 class DashboardFragment : Fragment() {
 
     private var currentPb = 0
+    private var modeLampu = false
+    private var modeFan = false
+    private var modeTimbangan = false
     private var _binding: FragmentDashboardBinding? = null
     private val viewmodel: DashboardViewModel by viewModels()
     @Inject lateinit var dataCache: DataCache
@@ -64,14 +68,16 @@ class DashboardFragment : Fragment() {
     }
 
     private fun initUi() {
+        iniAction()
+        initObserve()
 
-        binding.switchTimbangan.isChecked = sessionLogin.getBoolean(SessionLogin.MODETIMBANGAN)
-        binding.switchFan.isChecked = sessionLogin.getBoolean(SessionLogin.MODEFAN)
-        binding.switchLampu.isChecked = sessionLogin.getBoolean(SessionLogin.MODELAMP)
-
-        if (sessionLogin.getInt(SessionLogin.CURRENTPB)!=null){
-            currentPb = sessionLogin.getInt(SessionLogin.CURRENTPB)!!.toInt()
+        if (dataCache.dataSwitch != null){
+            binding.switchTimbangan.isChecked = dataCache.dataSwitch?.modeTimbangan!!
+            binding.switchFan.isChecked = dataCache.dataSwitch?.modeFan!!
+            binding.switchLampu.isChecked = dataCache.dataSwitch?.modeLampu!!
+            currentPb = dataCache.dataSwitch?.currentDimmer!!
         }
+        Log.e("datacache1",dataCache.dataSwitch.toString())
 
 //        Log.e("nilaicurret",currentPb.toString())
 //        binding.progresIntentsitas.max = 10
@@ -85,11 +91,16 @@ class DashboardFragment : Fragment() {
             binding.progresIntentsitas.min = mMin
             binding.progresIntentsitas.max = mMax
         }
-        binding.progresIntentsitas.progress = currentPb
+        binding.progresIntentsitas.progress = dataCache.dataSwitch?.currentDimmer!!
         binding.progresIntentsitas.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 currentPb = p1
-                sessionLogin.put(SessionLogin.CURRENTPB,currentPb)
+                dataCache.dataSwitch = FormatDataSwitch(
+                    modeFan = dataCache.dataSwitch?.modeFan,
+                    modeLampu = dataCache.dataSwitch?.modeLampu,
+                    modeTimbangan = dataCache.dataSwitch?.modeTimbangan,
+                    currentDimmer = currentPb
+                )
 
                 dataCache.dataTimbangan = FormatDataTimbangan(
                     value = currentPb.toString()
@@ -104,8 +115,7 @@ class DashboardFragment : Fragment() {
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
 
-        iniAction()
-        initObserve()
+
     }
 
     private fun initObserve() {
@@ -186,8 +196,9 @@ class DashboardFragment : Fragment() {
                 viewmodel.putSwLampu(
                     Gson().fromJson(Gson().toJson(dataCache.dataTimbangan), JsonObject::class.java)
                 )
-            } else{
+            }
 
+            if (!isChecked){
                 binding.pbSubmitRegistrasi.visibility = View.VISIBLE
                 dataCache.dataTimbangan = FormatDataTimbangan(
                     value = "0"
@@ -199,10 +210,22 @@ class DashboardFragment : Fragment() {
                 viewmodel.putDimmerLampu(
                     Gson().fromJson(Gson().toJson(dataCache.dataTimbangan), JsonObject::class.java)
                 )
-                sessionLogin.put(SessionLogin.CURRENTPB,0)
+                dataCache.dataSwitch = FormatDataSwitch(
+                    modeFan = dataCache.dataSwitch?.modeFan,
+                    modeLampu = false,
+                    modeTimbangan = dataCache.dataSwitch?.modeTimbangan,
+                    currentDimmer = 0
+                )
+                binding.progresIntentsitas.progress = 0
             }
 
-            sessionLogin.put(SessionLogin.MODELAMP,isChecked)
+            dataCache.dataSwitch = FormatDataSwitch(
+                modeFan = dataCache.dataSwitch?.modeFan,
+                modeLampu = isChecked,
+                modeTimbangan = dataCache.dataSwitch?.modeTimbangan,
+                currentDimmer = dataCache.dataSwitch?.currentDimmer
+            )
+            Log.e("datacache2",dataCache.dataSwitch.toString())
 
         }
 
@@ -226,8 +249,14 @@ class DashboardFragment : Fragment() {
                 )
             }
 
-            sessionLogin.put(SessionLogin.MODETIMBANGAN,isChecked)
+            dataCache.dataSwitch = FormatDataSwitch(
+                modeFan = dataCache.dataSwitch?.modeFan,
+                modeLampu = dataCache.dataSwitch?.modeLampu,
+                modeTimbangan = isChecked,
+                currentDimmer = dataCache.dataSwitch?.currentDimmer
+            )
 
+            Log.e("datacache3",dataCache.dataSwitch.toString())
         }
 
         binding.switchFan.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -249,7 +278,13 @@ class DashboardFragment : Fragment() {
                     Gson().fromJson(Gson().toJson(dataCache.dataTimbangan), JsonObject::class.java)
                 )
             }
-            sessionLogin.put(SessionLogin.MODEFAN,isChecked)
+            dataCache.dataSwitch = FormatDataSwitch(
+                modeFan = isChecked,
+                modeLampu = dataCache.dataSwitch?.modeLampu,
+                modeTimbangan = dataCache.dataSwitch?.modeTimbangan,
+                currentDimmer = dataCache.dataSwitch?.currentDimmer
+            )
+            Log.e("datacache4",dataCache.dataSwitch.toString())
 
         }
     }

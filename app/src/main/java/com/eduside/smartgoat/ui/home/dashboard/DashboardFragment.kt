@@ -21,6 +21,7 @@ import com.eduside.smartgoat.data.local.sp.model.FormatDataSwitch
 import com.eduside.smartgoat.data.local.sp.model.FormatDataTimbangan
 import com.eduside.smartgoat.databinding.FragmentDashboardBinding
 import com.eduside.smartgoat.ui.DialogGagalGet
+import com.eduside.smartgoat.ui.cctv.ImageActivity
 import com.eduside.smartgoat.util.showError
 import com.eduside.smartgoat.util.showLoading
 import com.google.gson.Gson
@@ -177,6 +178,9 @@ class DashboardFragment : Fragment() {
 
     private fun iniAction() {
 
+        binding.clCctv.setOnClickListener {
+            startActivity(Intent(requireActivity(),ImageActivity::class.java))
+        }
         binding.clLampu.setOnClickListener {
             binding.clnotranparan.visibility = View.GONE
             binding.cltranparan.visibility = View.VISIBLE

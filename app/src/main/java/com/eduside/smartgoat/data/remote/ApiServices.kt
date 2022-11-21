@@ -50,6 +50,10 @@ interface ApiServices {
     @GET("nodes/sensor/all")
     suspend fun getSensor(): Response<GetSensorResponse>
 
+    // GET SENSOR
+    @GET("nodes/image/all")
+    suspend fun getAllImage(): Response<GetImageResponse>
+
 
     // Login
     @POST("auth/login")

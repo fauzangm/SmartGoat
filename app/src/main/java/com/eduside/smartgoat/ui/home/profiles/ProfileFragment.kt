@@ -48,6 +48,11 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initUi() {
+        binding.tvNameProfile.text = sessionLogin.dataUser?.name
+        binding.tvEmail.text = sessionLogin.dataUser?.email
+        binding.tvttl.text = sessionLogin.dataUser?.ttl
+        binding.tvDomisili.text = sessionLogin.dataUser?.domisili
+        binding.tvLokKandang.text = sessionLogin.dataUser?.lokasi_kandang
         initAction()
     }
 

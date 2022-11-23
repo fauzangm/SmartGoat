@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import com.eduside.smartgoat.data.local.sp.model.FormatDataLogin
+import com.eduside.smartgoat.data.local.sp.model.FormatDataUser
 import com.eduside.smartgoat.ui.auth.login.LoginActivity
 import com.eduside.smartgoat.ui.home.MainActivity
 import com.google.gson.Gson
@@ -17,6 +18,7 @@ class SessionLogin @Inject constructor(
     companion object {
         private const val PREF_NAME = "dataLoginSmartGoatCache"
         private const val DATA_LOGIIN = "dataLoginCache"
+        private const val DATA_USER = "dataLoginCache"
         val PREF_IS_LOGIN = "LOGIN"
         val TOKEN = "TOKEN"
     }
@@ -39,6 +41,17 @@ class SessionLogin @Inject constructor(
                 null
             } else {
                 Gson().fromJson(data, FormatDataLogin::class.java)
+            }
+        }
+
+    var dataUser: FormatDataUser?
+        set(value) = pref.edit().putString(DATA_USER, Gson().toJson(value)).apply()
+        get() {
+            val data: String? = pref.getString(DATA_USER, null)
+            return if (data.isNullOrBlank()) {
+                null
+            } else {
+                Gson().fromJson(data, FormatDataUser::class.java)
             }
         }
 

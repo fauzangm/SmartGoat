@@ -62,32 +62,149 @@
                     android:textColor="@android:color/black"
                     android:layout_marginTop="16dp"/>
 
-                <TextView
-                    android:id="@+id/tv_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="email"
-                    android:layout_gravity="center"
-                    android:textSize="16sp"/>
 
-                <Button
-                    android:id="@+id/btn_change_password"
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_marginTop="40dp"
+                    android:id="@+id/llcNpwpdContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Identitas Kamu"
-                    android:background="@drawable/bg_btn_accent_rounded"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="40dp"/>
+                    android:weightSum="10">
 
 
-                <Button
-                    android:id="@+id/btn_Home"
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.5"
+                        android:text="Tanggal Lahir"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/small_text" />
+
+                    <TextView
+                        android:text="@string/tanda"
+                        android:fontFamily="@font/poppinssemibold"
+                        android:textColor="@color/black"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/tvttl"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/small_text"
+                        android:text="CA 1806" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llcNamaUsahaContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HOME"
-                    android:background="@drawable/bg_btn_accent_rounded"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="20dp"/>
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.5"
+                        android:text="Domisili"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/small_text" />
+
+                    <TextView
+                        android:text="@string/tanda"
+                        android:fontFamily="@font/poppinssemibold"
+                        android:textColor="@color/black"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/tvDomisili"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="italic"
+                        android:text="Capra aegagrus" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llcNamaPemilikContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.5"
+                        android:text="Lokasi Kandang"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/small_text" />
+
+                    <TextView
+                        android:text="@string/tanda"
+                        android:fontFamily="@font/poppinssemibold"
+                        android:textColor="@color/black"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/tvLokKandang"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/small_text"
+                        android:text="CA 0908" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llcAlamatContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.5"
+                        android:text="Email"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/small_text" />
+
+                    <TextView
+                        android:text="@string/tanda"
+                        android:fontFamily="@font/poppinssemibold"
+                        android:textColor="@color/black"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/small_text"
+                        android:text="CA 2110" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
 
 
 

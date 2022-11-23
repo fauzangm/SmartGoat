@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.eduside.smartgoat.data.local.db.entities.DatakambingVo
 import com.eduside.smartgoat.data.local.sp.SessionLogin
 import com.eduside.smartgoat.data.local.sp.model.FormatDataLogin
+import com.eduside.smartgoat.data.local.sp.model.FormatDataUser
 import com.eduside.smartgoat.databinding.ActivityLoginBinding
 import com.eduside.smartgoat.ui.auth.register.DialogSuccesRegist
 import com.eduside.smartgoat.ui.auth.register.RegisterDataDiriActivity
@@ -86,6 +87,14 @@ class LoginActivity : AppCompatActivity() {
             showLoading(this, binding.pbSubmitRegistrasi, it)
         }
         viewmodel.postLogResponse.observe(this) {
+            sessionLogin.dataUser = FormatDataUser(
+                name = it.message?.user?.name,
+                email = it.message?.user?.email,
+                ttl = it.message?.user?.ttl,
+                domisili = it.message?.user?.domisili,
+                lokasi_kandang = it.message?.user?.lokasiKandang,
+
+            )
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             start<MainActivity>()
             finish()

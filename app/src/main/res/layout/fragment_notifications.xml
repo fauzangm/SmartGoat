@@ -1,22 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.notifications.NotificationsFragment">
+    android:layout_height="wrap_content"
+    tools:context=".ui.auth.login.LoginActivity">
 
-    <TextView
-        android:id="@+id/text_notifications"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:background="#ADFFFFFF">
+
+        <ImageView
+            android:id="@+id/imgcontainerTop"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/bg_primary_bottom_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <ImageView
+            android:id="@+id/imggoatb"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/img_head_goat"
+            android:layout_marginStart="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/tittle"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/img_tittlesplash"
+            android:layout_marginStart="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imggoatb" />
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:id="@+id/imgtextheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:text="Berita"
+            android:textSize="30dp"
+            android:fontFamily="@font/poppinsbold"
+            android:textColor="@color/colorbrowndark"
+            android:src="@mipmap/img_textheaderhome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvBerita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Berita Hari ini"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgcontainerTop"
+            android:layout_margin="20dp"/>
+
+        <HorizontalScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBerita">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_semua"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_btn_white_rounded"
+                    android:text="Semua"
+                    android:textSize="10sp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnHijauan"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_btn_white_rounded"
+                    android:text="Hijauan"
+                    android:textSize="10sp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnKonsentrat"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_btn_white_rounded"
+                    android:text="Konsentrat"
+                    android:textSize="10sp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnKtpK"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_btn_white_rounded"
+                    android:text="KTP-K"
+                    android:textSize="10sp"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

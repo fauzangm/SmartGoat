@@ -91,6 +91,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_kambing"
             android:layout_width="51dp"
             android:layout_height="51dp"
             android:layout_marginStart="5dp"

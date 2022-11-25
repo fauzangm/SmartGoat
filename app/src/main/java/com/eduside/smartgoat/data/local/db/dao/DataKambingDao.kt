@@ -19,11 +19,11 @@ interface DataKambingDao {
     suspend fun addDatakambing(datakambingVo: List<DatakambingVo>)
 
     //Search
-    @Query("SELECT * FROM data_kambing WHERE Nomor_Kambing LIKE :searchQuery")
+    @Query("SELECT * FROM data_kambing WHERE id LIKE :searchQuery")
     fun searchDataNoKambing(searchQuery: String): Flow<List<DatakambingVo>>
 
     //Search
-    @Query("SELECT * FROM data_kambing WHERE Nama_Kambing LIKE :searchQuery OR Nomor_Kambing LIKE :searchQuery ")
+    @Query("SELECT * FROM data_kambing WHERE Ras_Kambing LIKE :searchQuery OR id LIKE :searchQuery ")
     fun searchDataNamaKambing(searchQuery: String): Flow<List<DatakambingVo>>
 
 

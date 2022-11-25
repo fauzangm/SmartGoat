@@ -1,17 +1,23 @@
 package com.eduside.smartgoat.data.repository.datakambing
 
 
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.eduside.bappenda.di.IoDispatcher
 import com.eduside.smartgoat.data.local.db.dao.DataKambingDao
 import com.eduside.smartgoat.data.local.db.entities.DatakambingVo
+import com.eduside.smartgoat.data.remote.ApiServices
+import com.eduside.smartgoat.data.remote.response.DataKambingItem
+import com.eduside.smartgoat.data.remote.response.GetDataKambingResponse
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class DataKambingRepository @Inject constructor(
     private val dataKambingDao: DataKambingDao,
-    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
+    private val apiServices: ApiServices,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) {
     //    fun getNpwpd(): LiveData<List<NpwpdVo>> = mNpwpdDao.getNpwpd()
     fun getDatakambing(): LiveData<List<DatakambingVo>> = dataKambingDao.getKambing()
@@ -45,122 +51,66 @@ class DataKambingRepository @Inject constructor(
         }
     }
 
+    private val error = MutableLiveData<String>()
+    private val loading = MutableLiveData<Boolean>()
+    private val reqGetKambingResponse = MutableLiveData<GetDataKambingResponse>()
+    suspend fun getDataKambing(): GetDataKambingResult {
+        return withContext(ioDispatcher) {
+            loading.postValue(true)
+            try {
+                val listKambingVo = dataKambingDao.getAllData()
+                val getResponse = apiServices.getDataKambing()
+                if (getResponse.isSuccessful) {
+                    getResponse.body()?.let {
+                        it.data?.forEach { data ->
+                            saveGetNpwpd(it.data)
+                        }
+                        Log.e("datakambing",it.data.toString())
+                        reqGetKambingResponse.postValue(it)
+                    }
+                } else {
+                    error.postValue(getResponse.errorBody()?.string().toString())
+                }
 
+                loading.postValue(false)
 
+            } catch (e: Exception) {
+                loading.postValue(false)
+                e.printStackTrace()
+                error.postValue(e.localizedMessage)
+            }
+            return@withContext GetDataKambingResult(error, loading, reqGetKambingResponse)
+        }
 
-//
-//    private val error = MutableLiveData<String>()
-//    private val loading = MutableLiveData<Boolean>()
-//    private val regRegistNpwpdResponse = MutableLiveData<PostRegistNPWPDResponse>()
-//
-//    suspend fun postRegistNpwpd(requestBody: JsonObject): PostRegistNpwpdResult {
-//        return withContext(ioDispatcher) {
-//            loading.postValue(true)
-//            try {
-//                val postRegistNpwpdResponse = apiServices.registNpwpd(requestBody)
-//                if (postRegistNpwpdResponse.isSuccessful) {
-//                    postRegistNpwpdResponse.body()?.let {
-//                        regRegistNpwpdResponse.postValue(it)
-//                    }
-//                } else {
-//                    error.postValue(postRegistNpwpdResponse.errorBody()?.string().toString())
-//                }
-//                loading.postValue(false)
-//
-//            } catch (e: Exception) {
-//                loading.postValue(false)
-//                e.printStackTrace()
-//                error.postValue(e.localizedMessage)
-//            }
-//            return@withContext PostRegistNpwpdResult(error, loading, regRegistNpwpdResponse)
-//        }
-//
-//    }
-//
-//
-//    private val reqGetNpwpdResponse = MutableLiveData<GetNpwpdResponse>()
-//    suspend fun getNpwpd(): GetNpwpdResult {
-//        return withContext(ioDispatcher) {
-//            loading.postValue(true)
-//            try {
-//                val listNpwpdVo = mNpwpdDao.getAllData()
-//
-//                val getNpwpdResponse = apiServices.getNpwpd()
-//                if (getNpwpdResponse.isSuccessful) {
-//                    getNpwpdResponse.body()?.let {
-//                        it.data?.forEach { data ->
-//                            saveGetNpwpd(it.data)
-//                        }
-//                        reqGetNpwpdResponse.postValue(it)
-//                    }
-//                } else {
-//                    error.postValue(getNpwpdResponse.errorBody()?.string().toString())
-//                }
-//
-//                loading.postValue(false)
-//
-//            } catch (e: Exception) {
-//                loading.postValue(false)
-//                e.printStackTrace()
-//                error.postValue(e.localizedMessage)
-//            }
-//            return@withContext GetNpwpdResult(error, loading, reqGetNpwpdResponse)
-//        }
-//
-//    }
-//
-//    private suspend fun saveGetNpwpd(listNpwpd: List<DataItemNpwpd>) {
-//        if (listNpwpd.isNotEmpty()) {
-//            val listNpwpdItem: ArrayList<NpwpdVo> = arrayListOf()
-//            listNpwpd.map {
-//                listNpwpdItem.add(
-//                    NpwpdVo(
-//                        id = it.id!!,
-//                        npwpd = it.npwpd,
-//                        namapemilik = it.objekPajak?.nama,
-//                        rtrw = it.objekPajak?.rtRw,
-//                        jenispajak = it.rekening?.jenisUsaha,
-//                        alamatpajak = it.objekPajak?.alamat,
-//                        nop = it.objekPajak?.nop,
-//                        objek = it.rekening?.objek,
-//                        namausaha = it.rekening?.nama,
-//                        rekeningId = it.rekening?.id.toString(),
-//                        objekPajakId = it.objekPajakId.toString(),
-//                        masaPajak = it.tanggalNpwpd?.toString()
-//                    )
-//
-//                )
-//            }
-//            delay(200L)
-//            mNpwpdDao.addNpwpd(listNpwpdItem)
-//        }
-//    }
-//
-//
-//    private val reqGetDetailNpwpdResponse = MutableLiveData<GetDetailNpwpdResponse>()
-//    suspend fun getDetailNpwpd(id: String): GetDetailNpwpdResult {
-//        return withContext(ioDispatcher) {
-//            loading.postValue(true)
-//            try {
-//                val getDetailNpwpdResponse = apiServices.getDetailNpwpd(id)
-//                if (getDetailNpwpdResponse.isSuccessful) {
-//                    getDetailNpwpdResponse.body()?.let {
-//                        reqGetDetailNpwpdResponse.postValue(it)
-//                    }
-//                } else {
-//                    error.postValue(getDetailNpwpdResponse.errorBody()?.string().toString())
-//                }
-//                loading.postValue(false)
-//
-//            } catch (e: Exception) {
-//                loading.postValue(false)
-//                e.printStackTrace()
-//                error.postValue(e.localizedMessage)
-//            }
-//            return@withContext GetDetailNpwpdResult(error, loading, reqGetDetailNpwpdResponse)
-//        }
-//
-//    }
+    }
+
+    private suspend fun saveGetNpwpd(listData: List<DataKambingItem>) {
+        if (listData.isNotEmpty()) {
+            val kambingVoItem: ArrayList<DatakambingVo> = arrayListOf()
+            listData.map {
+                kambingVoItem.add(
+                    DatakambingVo(
+                        id = it.id!!,
+                        warna = it.warna,
+                        saudara = it.saudara,
+                        image = it.image,
+                        rfidJantan = it.rfid_jantan,
+                        gender = it.gender,
+                        ras = it.ras,
+                        rfidBetina = it.rfid_betina,
+                        ttl = it.ttl,
+                        lokasi = it.lokasi,
+                        bobotSekarang = it.bobot_sekarang,
+                        rfid = it.rfid,
+                        bobotLahir = it.bobot_lahir
+                    )
+
+                )
+            }
+            delay(200L)
+            dataKambingDao.addDatakambing(kambingVoItem)
+        }
+    }
 
 
 }

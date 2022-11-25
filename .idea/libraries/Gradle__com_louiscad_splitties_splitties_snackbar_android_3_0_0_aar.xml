@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-snackbar-android:3.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/a86af9783b5830f547dbdc790eabf554/transformed/jetified-splitties-snackbar-debug/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a86af9783b5830f547dbdc790eabf554/transformed/jetified-splitties-snackbar-debug/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/cf07d91834a6d5f2927878463905f597/transformed/jetified-splitties-snackbar-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cf07d91834a6d5f2927878463905f597/transformed/jetified-splitties-snackbar-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-snackbar-android/3.0.0/5398a084e7d45856a7eb76ae6472f095fad7a600/splitties-snackbar-android-3.0.0-javadoc.jar!/" />

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-views-coroutines-material-android:3.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2256745ab3a51359742d9292534f97de/transformed/jetified-splitties-views-coroutines-material-debug/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2256745ab3a51359742d9292534f97de/transformed/jetified-splitties-views-coroutines-material-debug/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6e2d2e483abe11dda24b4a78ff55db90/transformed/jetified-splitties-views-coroutines-material-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6e2d2e483abe11dda24b4a78ff55db90/transformed/jetified-splitties-views-coroutines-material-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-coroutines-material-android/3.0.0/3981dfaba29762e9eacff72b140bb1474350e03c/splitties-views-coroutines-material-android-3.0.0-javadoc.jar!/" />

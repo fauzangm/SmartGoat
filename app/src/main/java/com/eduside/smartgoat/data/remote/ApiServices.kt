@@ -61,4 +61,12 @@ interface ApiServices {
         @Body body: JsonObject
     ): Response<PostLoginResponse>
 
+    // GET DATA KAMBING
+    @GET("data/kambing")
+    suspend fun getDataKambing(): Response<GetDataKambingResponse>
+
+    // GET DATA BERITA
+    @GET("data/news")
+    suspend fun getBerita(): Response<GetDataBeritaResponse>
+
 }

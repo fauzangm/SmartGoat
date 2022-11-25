@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -55,6 +56,10 @@ class ImageActivity : AppCompatActivity() {
             showLoading(this, binding.pbSubmitRegistrasi, it)
         }
         viewmodel.GetRegResponse.observe(this) {
+            it.data?.forEach {
+                Log.e("itcctv",it.toString())
+            }
+
             Glide
                 .with(applicationContext)
                 .load(it.data?.get(0))
@@ -94,7 +99,6 @@ class ImageActivity : AppCompatActivity() {
     }
 
     private fun initAction() {
-
     }
 }
 

@@ -14,6 +14,7 @@ import com.eduside.smartgoat.R
 import com.eduside.smartgoat.data.local.db.entities.DatakambingVo
 import com.eduside.smartgoat.databinding.ActivityLoginBinding
 import com.eduside.smartgoat.databinding.FragmentDataKambingBinding
+import com.eduside.smartgoat.ui.DialogGagalGet
 import com.eduside.smartgoat.ui.auth.register.RegisterDataDiriActivity
 import com.eduside.smartgoat.ui.datakambing.DataKambingViewModel
 import com.eduside.smartgoat.ui.home.HomeActivity
@@ -81,7 +82,7 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
     }
 
     private fun iniObserve() {
-        viewmodel.getDataKambing().observe(this){ data->
+    viewmodel.getDataKambing().observe(this){ data->
             adapter.submitList(data)
             Log.e("datakambing",data.toString())
         }
@@ -122,7 +123,21 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
     @Subscribe
     fun onItemNpwpdClickedEventHandler(event: ItemDataKambingEvent) {
         if (move == "1"){
-            startActivity(Intent(this,DetailKambingActivity::class.java))
+            val intent =Intent(this,DetailKambingActivity::class.java)
+            intent.putExtra(DetailKambingActivity.BOBOTLAHIR,event.datakambing.bobotLahir)
+            intent.putExtra(DetailKambingActivity.BOBOTSEKARANG,event.datakambing.bobotSekarang)
+            intent.putExtra(DetailKambingActivity.JENISKAMBING,event.datakambing.ras)
+            intent.putExtra(DetailKambingActivity.LOKASI,event.datakambing.lokasi)
+            intent.putExtra(DetailKambingActivity.JENISKELAMIN,event.datakambing.gender)
+            intent.putExtra(DetailKambingActivity.RAS,event.datakambing.ras)
+            intent.putExtra(DetailKambingActivity.RFID,event.datakambing.rfid)
+            intent.putExtra(DetailKambingActivity.RFIDBETINA,event.datakambing.rfidBetina)
+            intent.putExtra(DetailKambingActivity.RFIDJANTAN,event.datakambing.rfidJantan)
+            intent.putExtra(DetailKambingActivity.SAUDARA,event.datakambing.saudara)
+            intent.putExtra(DetailKambingActivity.TANGGALLAHIR,event.datakambing.ttl)
+            intent.putExtra(DetailKambingActivity.NOKAMBING,event.datakambing.id.toString())
+            intent.putExtra(DetailKambingActivity.WARNA,event.datakambing.warna)
+            startActivity(intent)
         }
 
         if (move == "2"){

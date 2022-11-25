@@ -54,29 +54,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initObserve() {
-        viewmodel.addDataKambing(
-            DatakambingVo(
-                id = 1,
-                nomor = "001",
-                nama = "Kambing Ahha"
-            )
-        )
-        viewmodel.addDataKambing(
-            DatakambingVo(
-                id = 2,
-                nomor = "002",
-                nama = "Kambing Buud"
-            )
-        )
-
-        viewmodel.addDataKambing(
-            DatakambingVo(
-                id = 3,
-                nomor = "003",
-                nama = "Kambing quin"
-            )
-        )
-
         viewmodel.postLogError.observe(this) {
 //            showError(this, AlertDialog)
             val bottomSheetFragment = DialogGagalLogin()

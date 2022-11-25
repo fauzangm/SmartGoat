@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.eduside.smartgoat.R
 import com.eduside.smartgoat.data.local.db.entities.DatakambingVo
 import com.eduside.smartgoat.databinding.ItemListDataKambingBinding
 import org.greenrobot.eventbus.EventBus
@@ -21,8 +23,14 @@ class DataKambingAdapter @Inject constructor() :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = getItem(position)
-        holder.binding.tvNamakambing.text = data.nama
-        holder.binding.tvNokambing.text = data.nomor
+        holder.binding.tvNamakambing.text = data.ras
+        holder.binding.tvNokambing.text = data.id.toString()
+//        Glide
+//            .with(holder.itemView.context)
+//            .load(data.image)
+//            .centerCrop()
+//            .placeholder(R.drawable.ic_defaultimage)
+//            .into(holder.binding.imgKambing)
         holder.binding.cvContainer.setOnClickListener {
             EventBus.getDefault().post(ItemDataKambingEvent(data))
         }

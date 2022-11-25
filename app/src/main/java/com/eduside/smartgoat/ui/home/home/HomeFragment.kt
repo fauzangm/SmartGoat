@@ -102,10 +102,29 @@ class HomeFragment : Fragment() {
 
 
         }
+
+        viewmodel.getKambingRegError.observe(viewLifecycleOwner) {
+            val bottomSheetFragment = DialogGagalGet()
+            activity?.supportFragmentManager?.let { it1 ->
+                bottomSheetFragment.show(
+                    it1,
+                    "DialogGagal"
+                )
+            }
+        }
+        viewmodel.getKambingRegLoading.observe(viewLifecycleOwner) {
+//            binding..visibility = View.VISIBLE
+//            showLoading(this, binding.pbSubmitRegistrasi, it)
+        }
+        viewmodel.getKambingRegResponse.observe(viewLifecycleOwner) {
+
+        }
+
     }
 
     private fun iniAction() {
         viewmodel.getSensor()
+        viewmodel.getDataKambing()
         binding.btnKambing.setOnClickListener {
             val intent = Intent(requireActivity(), DataKambingActivity::class.java)
             intent.putExtra(DataKambingActivity.MOVE,"1")

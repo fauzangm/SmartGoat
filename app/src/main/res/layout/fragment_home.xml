@@ -152,16 +152,17 @@
 
             <TextView
                 android:id="@+id/tv_kelembapan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
                 tools:text="@string/kelembapan_50"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppinslight"
                 android:textSize="10sp"
+                android:maxLines="2"
                 android:shadowColor="@color/white"
                 android:layout_gravity="bottom|start"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="7dp"
+                android:layout_marginStart="10dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -264,6 +265,20 @@
 
         </androidx.cardview.widget.CardView>
 
+
+
+        <ProgressBar
+            android:id="@+id/pbSubmitRegistrasi"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.783" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

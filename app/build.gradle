@@ -155,6 +155,7 @@ dependencies {
     //Glide = menampilkan gambar
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
 
 //    //  android debug database
 //    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'

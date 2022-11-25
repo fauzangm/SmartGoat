@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-views-dsl-constraintlayout-android:3.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d3cae22ca84b068d48825874aa9f6331/transformed/jetified-splitties-views-dsl-constraintlayout-debug/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d3cae22ca84b068d48825874aa9f6331/transformed/jetified-splitties-views-dsl-constraintlayout-debug/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/741406c1d7e60ddbf9ad4d1f2f1e1fa7/transformed/jetified-splitties-views-dsl-constraintlayout-debug/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/741406c1d7e60ddbf9ad4d1f2f1e1fa7/transformed/jetified-splitties-views-dsl-constraintlayout-debug/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-dsl-constraintlayout-android/3.0.0/c94e79e2ba1a5fdefd3f8766180c87498bc82c49/splitties-views-dsl-constraintlayout-android-3.0.0-javadoc.jar!/" />

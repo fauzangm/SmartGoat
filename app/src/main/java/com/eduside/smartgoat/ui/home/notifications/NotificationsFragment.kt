@@ -10,14 +10,22 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.eduside.smartgoat.R
 import com.eduside.smartgoat.databinding.FragmentNotificationsBinding
+import com.eduside.smartgoat.ui.DialogGagalGet
+import com.eduside.smartgoat.ui.home.home.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
-
+    private val viewmodel: NotificationsViewModel by viewModels()
+    @Inject lateinit var adapter: NotificationAdapter
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -27,8 +35,7 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -47,11 +54,34 @@ class NotificationsFragment : Fragment() {
     }
 
     private fun initUi() {
+        binding.rvBerita.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rvBerita.adapter = adapter
         binding.btnSemua.setBackgroundColor(resources.getColor(R.color.colorbrown))
         binding.btnSemua.setTextColor(resources.getColor(R.color.white))
-
+        initObserve()
         initAction()
+        viewmodel.getBerita()
 
+    }
+
+    private fun initObserve() {
+        viewmodel.getRegError.observe(viewLifecycleOwner) {
+            val bottomSheetFragment = DialogGagalGet()
+            activity?.supportFragmentManager?.let { it1 ->
+                bottomSheetFragment.show(
+                    it1,
+                    "DialogGagal"
+                )
+            }
+        }
+        viewmodel.getRegLoading.observe(viewLifecycleOwner) {
+//            binding.pbSubmitRegistrasi.visibility = View.VISIBLE
+//            showLoading(this, binding.pbSubmitRegistrasi, it)
+        }
+        viewmodel.getRegResponse.observe(viewLifecycleOwner) {
+            adapter.submitList(it.data)
+
+        }
     }
 
     private fun initAction() {

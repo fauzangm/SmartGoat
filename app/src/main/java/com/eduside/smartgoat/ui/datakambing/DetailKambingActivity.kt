@@ -20,6 +20,7 @@ import com.eduside.smartgoat.ui.datakambing.DataKambingViewModel
 import com.eduside.smartgoat.ui.home.HomeActivity
 import com.eduside.smartgoat.ui.home.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.internal.authenticator.JavaNetAuthenticator
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -42,14 +43,49 @@ class DetailKambingActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
+        if (intent!=null){
+            binding.tvRfid.text = intent.getStringExtra(RFID)
+            binding.tvNokambing.text = intent.getStringExtra(NOKAMBING)
+            binding.tvJenisKambing.text = intent.getStringExtra(JENISKAMBING)
+            binding.tvBobotLahir.text = intent.getStringExtra(BOBOTLAHIR)
+            binding.tvRas.text = intent.getStringExtra(RAS)
+            binding.tvBobotSekarang.text = intent.getStringExtra(BOBOTSEKARANG)
+            binding.tvJenisKelamin.text = intent.getStringExtra(JENISKELAMIN)
+            binding.tvTanggallahir.text = intent.getStringExtra(TANGGALLAHIR)
+            binding.tvSaudara.text = intent.getStringExtra(SAUDARA)
+            binding.tvWarna.text = intent.getStringExtra(WARNA)
+            binding.tvLokasi.text = intent.getStringExtra(LOKASI)
+            binding.tvRfidBetina.text = intent.getStringExtra(RFIDBETINA)
+            binding.tvRfidJantan.text = intent.getStringExtra(RFIDJANTAN)
+        }
+
+        initAction()
+    }
+
+
+    companion object{
+        const val RFID = "RFID"
+        const val NOKAMBING = "NOKAMBING"
+        const val JENISKAMBING = "JENISKAMBING"
+        const val BOBOTLAHIR = "BOBOTLAHIR"
+        const val RAS = "RAS"
+        const val BOBOTSEKARANG = "BOBOTSEKARANG"
+        const val JENISKELAMIN = "JENISKELAMIN"
+        const val SAUDARA = "SAUDARA"
+        const val WARNA = "WARNA"
+        const val LOKASI = "LOKASI"
+        const val RFIDBETINA = "RFIDBETINA"
+        const val RFIDJANTAN = "RFIDJANTAN"
+        const val TANGGALLAHIR = "TANGGALLAHIR"
+    }
+
+    private fun initAction() {
         binding.ivBack.setOnClickListener {
             onBackPressed()
         }
-    }
-
-    private fun iniObserve() {
 
     }
+
 
 
     override fun onDestroy() {

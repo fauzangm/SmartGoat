@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-lifecycle-coroutines-android:3.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d58b06cb3abe4e6ad32db2df36d88149/transformed/jetified-splitties-lifecycle-coroutines-debug/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d58b06cb3abe4e6ad32db2df36d88149/transformed/jetified-splitties-lifecycle-coroutines-debug/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/0b9b9814e09a83ed7485251a67bc0106/transformed/jetified-splitties-lifecycle-coroutines-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0b9b9814e09a83ed7485251a67bc0106/transformed/jetified-splitties-lifecycle-coroutines-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-lifecycle-coroutines-android/3.0.0/6709d0a1e64bca0f588d840f82d9fe13a4383afa/splitties-lifecycle-coroutines-android-3.0.0-javadoc.jar!/" />

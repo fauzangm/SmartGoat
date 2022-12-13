@@ -15,6 +15,7 @@ import com.eduside.smartgoat.databinding.ActivityCctvBinding
 import com.eduside.smartgoat.databinding.ActivitySplashBinding
 import com.eduside.smartgoat.ui.DialogGagalGet
 import com.eduside.smartgoat.ui.auth.AuthViewModel
+import com.eduside.smartgoat.ui.auth.SplashKtpActivity
 import com.eduside.smartgoat.ui.auth.login.DialogGagalLogin
 import com.eduside.smartgoat.ui.auth.register.DialogSuccesRegist
 import com.eduside.smartgoat.util.showLoading
@@ -23,7 +24,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class ImageActivity : AppCompatActivity() {
-    private var _binding : ActivityCctvBinding? = null
+    private var _binding: ActivityCctvBinding? = null
     private val viewmodel: ImageViewModel by viewModels()
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class ImageActivity : AppCompatActivity() {
         setContentView(binding.root)
         try {
             initUi()
-        } catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
@@ -42,14 +43,22 @@ class ImageActivity : AppCompatActivity() {
         viewmodel.getImage()
         initAction()
         initObserve()
+        getRealtime()
 
+    }
+
+    private fun getRealtime() {
+        Handler(Looper.getMainLooper()).postDelayed({
+            viewmodel.getImage()
+            getRealtime()
+        },30000)
     }
 
     private fun initObserve() {
 
         viewmodel.GetRegError.observe(this) {
             val bottomSheetFragment = DialogGagalGet()
-            bottomSheetFragment.show(supportFragmentManager,"DialogGagal")
+            bottomSheetFragment.show(supportFragmentManager, "DialogGagal")
         }
         viewmodel.GetRegLoading.observe(this) {
             binding.pbSubmitRegistrasi.visibility = View.VISIBLE
@@ -57,45 +66,56 @@ class ImageActivity : AppCompatActivity() {
         }
         viewmodel.GetRegResponse.observe(this) {
             it.data?.forEach {
-                Log.e("itcctv",it.toString())
+                Log.e("itcctv", it.toString())
+            }
+            val lenght = it.data?.size
+            if (lenght != null) {
+                Log.e("sizenya", lenght.toString())
+                Glide
+                    .with(applicationContext)
+                    .load(it.data?.get(lenght - 1))
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_defaultimage)
+                    .into(binding.imgCctv1)
+
+                Glide
+                    .with(applicationContext)
+                    .load(it.data?.get(lenght -2))
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_defaultimage)
+                    .into(binding.imgCctv2)
+
+
+                Glide
+                    .with(applicationContext)
+                    .load(it.data?.get(lenght -3 ))
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_defaultimage)
+                    .into(binding.imgCctv3)
+
+
+
+                Glide
+                    .with(applicationContext)
+                    .load(it.data?.get(lenght -4))
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_defaultimage)
+                    .into(binding.imgCctv4)
+
+
+
+                Glide
+                    .with(applicationContext)
+                    .load(it.data?.get(lenght -5))
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_defaultimage)
+                    .into(binding.imgCctv5)
+
+
             }
 
-            Glide
-                .with(applicationContext)
-                .load(it.data?.get(0))
-                .centerCrop()
-                .placeholder(R.drawable.ic_defaultimage)
-                .into(binding.imgCctv1)
 
-            Glide
-                .with(applicationContext)
-                .load(it.data?.get(1))
-                .centerCrop()
-                .placeholder(R.drawable.ic_defaultimage)
-                .into(binding.imgCctv2)
-
-            Glide
-                .with(applicationContext)
-                .load(it.data?.get(2))
-                .centerCrop()
-                .placeholder(R.drawable.ic_defaultimage)
-                .into(binding.imgCctv3)
-
-            Glide
-                .with(applicationContext)
-                .load(it.data?.get(3))
-                .centerCrop()
-                .placeholder(R.drawable.ic_defaultimage)
-                .into(binding.imgCctv4)
-
-            Glide
-                .with(applicationContext)
-                .load(it.data?.get(3))
-                .centerCrop()
-                .placeholder(R.drawable.ic_defaultimage)
-                .into(binding.imgCctv5)
         }
-
     }
 
     private fun initAction() {

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-preferences-android:3.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9067dcdd533b87147d277b27f20bd214/transformed/jetified-splitties-preferences-debug/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9067dcdd533b87147d277b27f20bd214/transformed/jetified-splitties-preferences-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9067dcdd533b87147d277b27f20bd214/transformed/jetified-splitties-preferences-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-preferences-android/3.0.0/613ce8ced018b05f4b4493c5e1b01ae2608cc06f/splitties-preferences-android-3.0.0-javadoc.jar!/" />

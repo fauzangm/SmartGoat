@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eduside.smartgoat.R
 import com.eduside.smartgoat.data.local.db.entities.DatakambingVo
+import com.eduside.smartgoat.data.local.sp.DataCache
 import com.eduside.smartgoat.databinding.ActivityLoginBinding
 import com.eduside.smartgoat.databinding.FragmentDataKambingBinding
 import com.eduside.smartgoat.ui.DialogGagalGet
@@ -35,6 +36,7 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
     private var move = ""
     @Inject
     lateinit var adapter : DataKambingAdapter
+    @Inject lateinit var dataCache: DataCache
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = FragmentDataKambingBinding.inflate(layoutInflater)
@@ -141,7 +143,9 @@ class DataKambingActivity : AppCompatActivity(), SearchView.OnQueryTextListener 
         }
 
         if (move == "2"){
-            startActivity(Intent(this,KomposisiActivity::class.java))
+            val intent = Intent(this,KomposisiActivity::class.java)
+            dataCache.put(DataCache.IDKAMBING,event.datakambing.id.toString())
+            startActivity(intent)
         }
     }
 

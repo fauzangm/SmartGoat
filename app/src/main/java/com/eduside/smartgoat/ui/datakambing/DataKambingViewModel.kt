@@ -15,6 +15,10 @@ class DataKambingViewModel @Inject constructor(
     private val dataKambingRepository: DataKambingRepository
 ) : ViewModel() {
     fun getDataKambing(): LiveData<List<DatakambingVo>> = dataKambingRepository.getDatakambing()
+
+    fun deletDataKambing() = viewModelScope.launch {
+        dataKambingRepository.clear()
+    }
 //    {
 //        viewModelScope.launch {
 //            dataKambingRepository.getAllData()

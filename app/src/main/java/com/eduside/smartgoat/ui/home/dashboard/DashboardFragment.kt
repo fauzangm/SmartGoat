@@ -72,19 +72,9 @@ class DashboardFragment : Fragment() {
         iniAction()
         initObserve()
 
-        if (dataCache.dataSwitch != null){
-            binding.switchTimbangan.isChecked = dataCache.dataSwitch?.modeTimbangan!!
-            binding.switchFan.isChecked = dataCache.dataSwitch?.modeFan!!
-            binding.switchLampu.isChecked = dataCache.dataSwitch?.modeLampu!!
-            currentPb = dataCache.dataSwitch?.currentDimmer!!
-        }
-        Log.e("datacache1",dataCache.dataSwitch.toString())
+        viewmodel.getSw()
+//
 
-//        Log.e("nilaicurret",currentPb.toString())
-//        binding.progresIntentsitas.max = 10
-//        ObjectAnimator.ofInt(binding.progresIntentsitas,"progress",currentPb)
-//            .setDuration(500)
-//            .start()
 
         var mMin = 0
         var mMax = 100
@@ -173,6 +163,77 @@ class DashboardFragment : Fragment() {
         }
         viewmodel.putDimmerLampuRegResponse.observe(viewLifecycleOwner) {
             dataCache.dataTimbangan = null
+        }
+
+        //getVALUE
+        //Dimmer
+        viewmodel.getSwError.observe(viewLifecycleOwner) {
+            showError(requireActivity(),it)
+            val bottomSheetFragment = DialogGagalGet()
+            activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+        }
+        viewmodel.getSwLoading.observe(viewLifecycleOwner) {
+            binding.pbSubmitRegistrasi.visibility = View.VISIBLE
+            showLoading(requireActivity(), binding.pbSubmitRegistrasi, it)
+        }
+        viewmodel.getSwResponse.observe(viewLifecycleOwner) {
+            if (it.data?.dimmer == "1"){
+                dataCache.dataSwitch = FormatDataSwitch(
+                    modeFan = dataCache.dataSwitch?.modeFan,
+                    modeLampu = true,
+                    modeTimbangan = dataCache.dataSwitch?.modeTimbangan,
+                    currentDimmer = dataCache.dataSwitch?.currentDimmer
+                )
+            }
+            if (it.data?.dimmer == "0"){
+                dataCache.dataSwitch = FormatDataSwitch(
+                    modeFan = dataCache.dataSwitch?.modeFan,
+                    modeLampu = false,
+                    modeTimbangan = dataCache.dataSwitch?.modeTimbangan,
+                    currentDimmer = 0
+                )
+            }
+
+            if (it.data?.exhouse == "0"){
+                dataCache.dataSwitch = FormatDataSwitch(
+                    modeFan = false,
+                    modeLampu = dataCache.dataSwitch?.modeLampu,
+                    modeTimbangan = dataCache.dataSwitch?.modeTimbangan,
+                    currentDimmer = dataCache.dataSwitch?.currentDimmer
+                )
+            }
+            if (it.data?.exhouse == "1"){
+                dataCache.dataSwitch = FormatDataSwitch(
+                    modeFan = true,
+                    modeLampu = dataCache.dataSwitch?.modeLampu,
+                    modeTimbangan = dataCache.dataSwitch?.modeTimbangan,
+                    currentDimmer = dataCache.dataSwitch?.currentDimmer
+                )
+            }
+
+            if (it.data?.timbangan == "0"){
+                dataCache.dataSwitch = FormatDataSwitch(
+                    modeFan = dataCache.dataSwitch?.modeFan,
+                    modeLampu = dataCache.dataSwitch?.modeLampu,
+                    modeTimbangan = false,
+                    currentDimmer = dataCache.dataSwitch?.currentDimmer
+                )
+            }
+            if (it.data?.timbangan == "1"){
+                dataCache.dataSwitch = FormatDataSwitch(
+                    modeFan = dataCache.dataSwitch?.modeFan,
+                    modeLampu = dataCache.dataSwitch?.modeLampu,
+                    modeTimbangan = true,
+                    currentDimmer = dataCache.dataSwitch?.currentDimmer
+                )
+            }
+
+                binding.switchTimbangan.isChecked = dataCache.dataSwitch?.modeTimbangan!!
+                binding.switchFan.isChecked = dataCache.dataSwitch?.modeFan!!
+                binding.switchLampu.isChecked = dataCache.dataSwitch?.modeLampu!!
+                currentPb = dataCache.dataSwitch?.currentDimmer!!
+
+
         }
     }
 

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-fun-pack-android-base-with-views-dsl-android:3.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fb776f8468c04029c499cd74eb8331ec/transformed/jetified-splitties-fun-pack-android-base-with-views-dsl-debug/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fb776f8468c04029c499cd74eb8331ec/transformed/jetified-splitties-fun-pack-android-base-with-views-dsl-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fb776f8468c04029c499cd74eb8331ec/transformed/jetified-splitties-fun-pack-android-base-with-views-dsl-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-fun-pack-android-base-with-views-dsl-android/3.0.0/6aafdfbb4ea489787455ca1318ea74a29463bd56/splitties-fun-pack-android-base-with-views-dsl-android-3.0.0-javadoc.jar!/" />

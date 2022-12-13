@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initObserve() {
         viewmodel.postLogError.observe(this) {
-//            showError(this, AlertDialog)
+//            showError(this, it)
             val bottomSheetFragment = DialogGagalLogin()
             bottomSheetFragment.show(supportFragmentManager,"DialogGagal")
         }

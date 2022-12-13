@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.louiscad.splitties:splitties-views-selectable-android:3.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/47412b440696c730c337b219d108f50c/transformed/jetified-splitties-views-selectable-debug/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/47412b440696c730c337b219d108f50c/transformed/jetified-splitties-views-selectable-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/47412b440696c730c337b219d108f50c/transformed/jetified-splitties-views-selectable-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-selectable-android/3.0.0/3fb3dee6f0946e9bc60c74c88e6c55b109baa078/splitties-views-selectable-android-3.0.0-javadoc.jar!/" />

@@ -54,6 +54,10 @@ interface ApiServices {
     @GET("nodes/image/all")
     suspend fun getAllImage(): Response<GetImageResponse>
 
+    // GET Switch
+    @GET("nodes/switch/1")
+    suspend fun getAllSw(): Response<GetSwitchResponse>
+
 
     // Login
     @POST("auth/login")
@@ -68,5 +72,19 @@ interface ApiServices {
     // GET DATA BERITA
     @GET("data/news")
     suspend fun getBerita(): Response<GetDataBeritaResponse>
+
+    // GET DATA KONSENTRAT
+    @FormUrlEncoded
+    @POST("data/kambing/konsentrat")
+    suspend fun getKonsentrat(
+        @Field("id")id : String
+    ): Response<GetKonsentratResponse>
+
+    // GET DATA HIJAUAN
+    @FormUrlEncoded
+    @POST("data/kambing/hijauan")
+    suspend fun getHijauan(
+        @Field("id")id : String
+    ): Response<GetHijauanResponse>
 
 }

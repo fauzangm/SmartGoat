@@ -8,6 +8,8 @@ import com.eduside.smartgoat.data.repository.Lampu.PutLampuResult
 import com.eduside.smartgoat.data.repository.Lampu.SwLampuRepository
 import com.eduside.smartgoat.data.repository.Timbangan.PutTImbanganResult
 import com.eduside.smartgoat.data.repository.Timbangan.TimbanganRepository
+import com.eduside.smartgoat.data.repository.getSwitch.GetSwResult
+import com.eduside.smartgoat.data.repository.getSwitch.SwitchRepository
 import com.eduside.smartgoat.data.repository.sensor.GetSensorResult
 import com.eduside.smartgoat.data.repository.sensor.SensorRepository
 import com.google.gson.JsonObject
@@ -19,7 +21,8 @@ import javax.inject.Inject
 class DashboardViewModel @Inject constructor(
     private val timbanganRepository: TimbanganRepository,
     private val fanRepository: FanRepository,
-    private val swLampuRepository: SwLampuRepository
+    private val swLampuRepository: SwLampuRepository,
+    private val switchRepository: SwitchRepository
 ) : ViewModel()  {
 
     private val putRegResult = MutableLiveData<PutTImbanganResult>()
@@ -59,6 +62,16 @@ class DashboardViewModel @Inject constructor(
     fun putDimmerLampu(requestBody: JsonObject) {
         viewModelScope.launch {
             putDimmerLampuRegResult.postValue(swLampuRepository.putDimmerLampu(requestBody))
+        }
+    }
+
+    private val getSwresult = MutableLiveData<GetSwResult>()
+    val getSwError = Transformations.switchMap(getSwresult) { it.error }
+    val getSwLoading = Transformations.switchMap(getSwresult) { it.loading }
+    val getSwResponse = Transformations.switchMap(getSwresult) { it.reqGetSw }
+    fun getSw() {
+        viewModelScope.launch {
+            getSwresult.postValue(switchRepository.getSw())
         }
     }
 }

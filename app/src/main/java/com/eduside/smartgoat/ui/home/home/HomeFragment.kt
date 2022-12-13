@@ -20,6 +20,7 @@ import com.eduside.smartgoat.ui.auth.AuthViewModel
 import com.eduside.smartgoat.ui.auth.login.DialogGagalLogin
 import com.eduside.smartgoat.ui.auth.register.DialogSuccesRegist
 import com.eduside.smartgoat.ui.datakambing.DataKambingActivity
+import com.eduside.smartgoat.ui.datakambing.DataKambingViewModel
 import com.eduside.smartgoat.ui.komposisi.KomposisiActivity
 import com.eduside.smartgoat.util.DATETIME_FULL_FORMAT
 import com.eduside.smartgoat.util.formatStringToTanggal
@@ -35,6 +36,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val viewmodel: HomeViewModel by viewModels()
+    private val dataKambingViewModel : DataKambingViewModel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -62,7 +64,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initUi() {
-
+        dataKambingViewModel.deletDataKambing()
         val current = LocalDateTime.now()
         val selectedDate = LocalDate(
             current.year,

@@ -2,8 +2,8 @@
   <library name="Gradle: com.louiscad.splitties:splitties-views-dsl-appcompat-android:3.0.0@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/008d5afb0dc14d87e1a850ceaf217924/transformed/jetified-splitties-views-dsl-appcompat-debug/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/008d5afb0dc14d87e1a850ceaf217924/transformed/jetified-splitties-views-dsl-appcompat-debug/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/008d5afb0dc14d87e1a850ceaf217924/transformed/jetified-splitties-views-dsl-appcompat-debug/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/008d5afb0dc14d87e1a850ceaf217924/transformed/jetified-splitties-views-dsl-appcompat-debug/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.louiscad.splitties/splitties-views-dsl-appcompat-android/3.0.0/3d8c0efa05875cce64288e1550443ded71312cf4/splitties-views-dsl-appcompat-android-3.0.0-javadoc.jar!/" />

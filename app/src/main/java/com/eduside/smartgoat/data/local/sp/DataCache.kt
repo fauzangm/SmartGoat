@@ -16,6 +16,7 @@ class DataCache @Inject constructor(
         private const val PREF_NAME = "dataSmarGoat"
         private const val DATA_CACHE = "dataSmartGoat"
         private const val DATA_CACHESWITCH = "dataSwitchSmartGoat"
+        val IDKAMBING = ""
     }
 
     private var pref: SharedPreferences
@@ -42,4 +43,38 @@ class DataCache @Inject constructor(
             return if(data.isNullOrBlank()){ null } else { Gson().fromJson(data, FormatDataSwitch::class.java) }
         }
 
+
+    fun put(key: String, value: String) {
+        editor.putString(key, value)
+            .apply()
+    }
+
+    fun getString(key: String): String? {
+        return pref.getString(key, "")
+    }
+
+    fun put(key: String, value: Int) {
+        editor.putInt(key, value)
+            .apply()
+    }
+
+    fun getInt(key: String): Int? {
+        return pref.getInt(key, 0)
+    }
+
+    fun put(key: String, value: Boolean) {
+        editor.putBoolean(key, value)
+            .apply()
+    }
+
+    fun getBoolean(key: String): Boolean {
+        return pref.getBoolean(key, false)
+    }
+
+
+    fun clear() {
+        // Clearing all data from Shared Preferences
+        editor.clear()
+        editor.apply()
+    }
 }

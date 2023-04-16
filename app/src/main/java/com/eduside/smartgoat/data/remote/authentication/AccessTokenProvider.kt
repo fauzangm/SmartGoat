@@ -16,7 +16,7 @@ class AccessTokenProvider(
 
     private val interceptor = HttpLoggingInterceptor()
     private val apiServices: ApiServices
-    private val BASE_URL = "https://farmer.oyifarm.com/api/"
+    private val BASE_URL = "https://oyifarm.mirandajaya.com/api/"
 
     init {
         if (BuildConfig.DEBUG) {

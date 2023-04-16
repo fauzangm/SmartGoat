@@ -26,7 +26,7 @@ object AppModules {
     private const val CONNECT_TIMEOUT: Long = 30
     private const val READ_TIMEOUT: Long = 30
     private const val WRITE_TIMEOUT: Long = 30
-    private const val BASE_URL = "https://farmer.oyifarm.com/api/"
+    private const val BASE_URL = "https://oyifarm.mirandajaya.com/api/"
 
     @Provides
     @Singleton

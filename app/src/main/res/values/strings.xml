@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">smartgoat</string>
     <string name="login">LOGIN</string>
     <string name="password">Password</string>
     <string name="masuk">MASUK</string>

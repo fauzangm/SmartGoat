@@ -70,21 +70,21 @@ android {
     lint {
         abortOnError false
     }
-//    flavorDimensions "env"
-//    productFlavors {
-//        prod {
-//            dimension "env"
-//            buildConfigField "String", "BASE_URL", '"http://bapenda-be.ipd-bakoma.demokene.com/"'
-//            resValue "string", "app_name", "Bapenda Wajib Pajak"
-//        }
-//        dev {
-//            dimension "env"
-//            applicationIdSuffix ".dev"
-//            versionNameSuffix "-dev"
-//            buildConfigField "String", "BASE_URL", '"http://wp-be.ipd-bakoma.demokene.com"'
-//            resValue "string", "app_name", "Bapenda Wajib Pajak Dev"
-//        }
-//    }
+    flavorDimensions "env"
+    productFlavors {
+        prod {
+            dimension "env"
+            buildConfigField "String", "BASE_URL", '"https://farmer.oyifarm.com/api/"'
+            resValue "string", "app_name", "Smart Goat"
+        }
+        dev {
+            dimension "env"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            buildConfigField "String", "BASE_URL", '"https://farmer.oyifarm.com/api/"'
+            resValue "string", "app_name", "Smart Goat"
+        }
+    }
 }
 
 dependencies {

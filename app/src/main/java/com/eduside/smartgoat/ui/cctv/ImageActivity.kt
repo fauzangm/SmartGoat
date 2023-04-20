@@ -51,7 +51,7 @@ class ImageActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             viewmodel.getImage()
             getRealtime()
-        },30000)
+        }, 30000)
     }
 
     private fun initObserve() {
@@ -69,56 +69,97 @@ class ImageActivity : AppCompatActivity() {
                 Log.e("itcctv", it.toString())
             }
             val lenght = it.data?.size
-            if (lenght != null) {
-                Log.e("sizenya", lenght.toString())
-                Glide
-                    .with(applicationContext)
-                    .load(it.data?.get(lenght - 1))
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_defaultimage)
-                    .into(binding.imgCctv1)
+            try {
+                if (lenght != null) {
 
-                Glide
-                    .with(applicationContext)
-                    .load(it.data?.get(lenght -2))
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_defaultimage)
-                    .into(binding.imgCctv2)
+                    try {
+                        if (lenght > 1) {
+                            Glide
+                                .with(applicationContext)
+                                .load(it.data?.get(lenght - 1))
+                                .centerCrop()
+                                .placeholder(R.drawable.ic_defaultimage)
+                                .into(binding.imgCctv1)
+                        }
 
-
-                Glide
-                    .with(applicationContext)
-                    .load(it.data?.get(lenght -3 ))
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_defaultimage)
-                    .into(binding.imgCctv3)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
 
 
+                    try {
 
-                Glide
-                    .with(applicationContext)
-                    .load(it.data?.get(lenght -4))
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_defaultimage)
-                    .into(binding.imgCctv4)
-
-
-
-                Glide
-                    .with(applicationContext)
-                    .load(it.data?.get(lenght -5))
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_defaultimage)
-                    .into(binding.imgCctv5)
+                        Glide
+                            .with(applicationContext)
+                            .load(it.data?.get(lenght - 2))
+                            .centerCrop()
+                            .placeholder(R.drawable.ic_defaultimage)
+                            .into(binding.imgCctv2)
 
 
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+
+
+                    try {
+                        Glide
+                            .with(applicationContext)
+                            .load(it.data?.get(lenght - 3))
+                            .centerCrop()
+                            .placeholder(R.drawable.ic_defaultimage)
+                            .into(binding.imgCctv3)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+
+                    try {
+
+                        Glide
+                            .with(applicationContext)
+                            .load(it.data?.get(lenght - 4))
+                            .centerCrop()
+                            .placeholder(R.drawable.ic_defaultimage)
+                            .into(binding.imgCctv4)
+
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+
+
+                    try {
+
+
+                        Glide
+                            .with(applicationContext)
+                            .load(it.data?.get(lenght - 5))
+                            .centerCrop()
+                            .placeholder(R.drawable.ic_defaultimage)
+                            .into(binding.imgCctv5)
+
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+
+
+                    Log.e("sizenya", lenght.toString())
+
+
+                }
+
+            } catch (e:Exception){
+                e.printStackTrace()
             }
-
 
         }
     }
 
     private fun initAction() {
+        binding.imgback.setOnClickListener {
+            onBackPressed()
+        }
     }
 }
 

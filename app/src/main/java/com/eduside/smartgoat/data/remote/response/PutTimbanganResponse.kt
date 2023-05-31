@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class PutTimbanganResponse(
 
-	@field:SerializedName("data")
-	val data: String? = null,
+//	@field:SerializedName("data")
+//	val data: String? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,

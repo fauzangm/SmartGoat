@@ -8,10 +8,12 @@ import com.eduside.bappenda.di.IoDispatcher
 import com.eduside.smartgoat.data.local.db.dao.DataKambingDao
 import com.eduside.smartgoat.data.local.db.entities.DatakambingVo
 import com.eduside.smartgoat.data.remote.ApiServices
+import com.eduside.smartgoat.data.remote.model.Error
 import com.eduside.smartgoat.data.remote.response.DataKambingItem
 import com.eduside.smartgoat.data.remote.response.GetDataBeritaResponse
 import com.eduside.smartgoat.data.remote.response.GetDataKambingResponse
 import com.eduside.smartgoat.data.remote.response.GetSwitchResponse
+import com.eduside.smartgoat.util.UNKNOWN_DATABASE_ERROR
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -33,7 +35,12 @@ class SwitchRepository @Inject constructor(
                         regGetSw.postValue(it)
                     }
                 } else {
-                    error.postValue(getResponse.errorBody()?.string().toString())
+                    if (getResponse.code() !=  404){
+                        error.postValue(
+                            getResponse.errorBody()?.let { Error.getErrorMessage(it.string()) })
+                    }else {
+                        error.postValue(UNKNOWN_DATABASE_ERROR)
+                    }
                 }
 
                 loading.postValue(false)

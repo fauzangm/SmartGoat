@@ -69,7 +69,10 @@ class DataKambingRepository @Inject constructor(
                         reqGetKambingResponse.postValue(it)
                     }
                 } else {
-                    error.postValue(getResponse.errorBody()?.string().toString())
+                    Log.e("code",getResponse.code().toString())
+                    if (getResponse.code() !=  404){
+                        error.postValue(getResponse.errorBody()?.string().toString())
+                    }
                 }
 
                 loading.postValue(false)

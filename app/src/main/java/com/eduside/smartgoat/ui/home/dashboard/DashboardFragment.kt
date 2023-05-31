@@ -11,9 +11,11 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.eduside.smartgoat.R
 import com.eduside.smartgoat.data.local.sp.DataCache
 import com.eduside.smartgoat.data.local.sp.SessionLogin
 import com.eduside.smartgoat.data.local.sp.model.FormatDataRegistrasi
@@ -22,8 +24,10 @@ import com.eduside.smartgoat.data.local.sp.model.FormatDataTimbangan
 import com.eduside.smartgoat.databinding.FragmentDashboardBinding
 import com.eduside.smartgoat.ui.DialogGagalGet
 import com.eduside.smartgoat.ui.cctv.ImageActivity
+import com.eduside.smartgoat.util.UNKNOWN_DATABASE_ERROR
 import com.eduside.smartgoat.util.showError
 import com.eduside.smartgoat.util.showLoading
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
@@ -113,8 +117,12 @@ class DashboardFragment : Fragment() {
 
         //TImbangan
         viewmodel.putRegError.observe(viewLifecycleOwner) {
-            val bottomSheetFragment = DialogGagalGet()
-            activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            if (it == UNKNOWN_DATABASE_ERROR){
+                setSnackBar()
+            }else{
+                val bottomSheetFragment = DialogGagalGet()
+                activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            }
         }
         viewmodel.putRegLoading.observe(viewLifecycleOwner) {
             binding.pbSubmitRegistrasi.visibility = View.VISIBLE
@@ -126,8 +134,12 @@ class DashboardFragment : Fragment() {
 
         //FAN
         viewmodel.putFanRegError.observe(viewLifecycleOwner) {
-            val bottomSheetFragment = DialogGagalGet()
-            activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            if (it == UNKNOWN_DATABASE_ERROR){
+                setSnackBar()
+            }else{
+                val bottomSheetFragment = DialogGagalGet()
+                activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            }
         }
         viewmodel.putFanRegLoading.observe(viewLifecycleOwner) {
             binding.pbSubmitRegistrasi.visibility = View.VISIBLE
@@ -139,9 +151,12 @@ class DashboardFragment : Fragment() {
 
         //SWLAMPU
         viewmodel.putSwLampuRegError.observe(viewLifecycleOwner) {
-//            showError(requireActivity(),it)
-//            val bottomSheetFragment = DialogGagalGet()
-//            activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            if (it == UNKNOWN_DATABASE_ERROR){
+                setSnackBar()
+            }else{
+                val bottomSheetFragment = DialogGagalGet()
+                activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            }
         }
         viewmodel.putSwLampuRegLoading.observe(viewLifecycleOwner) {
             binding.pbSubmitRegistrasi.visibility = View.VISIBLE
@@ -153,9 +168,12 @@ class DashboardFragment : Fragment() {
 
         //Dimmer
         viewmodel.putDimmerLampuRegError.observe(viewLifecycleOwner) {
-//            showError(requireActivity(),it)
-//            val bottomSheetFragment = DialogGagalGet()
-//            activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            if (it == UNKNOWN_DATABASE_ERROR){
+                setSnackBar()
+            }else{
+                val bottomSheetFragment = DialogGagalGet()
+                activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            }
         }
         viewmodel.putDimmerLampuRegLoading.observe(viewLifecycleOwner) {
             binding.pbSubmitRegistrasi.visibility = View.VISIBLE
@@ -168,9 +186,12 @@ class DashboardFragment : Fragment() {
         //getVALUE
         //Dimmer
         viewmodel.getSwError.observe(viewLifecycleOwner) {
-            showError(requireActivity(),it)
-            val bottomSheetFragment = DialogGagalGet()
-            activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            if (it == UNKNOWN_DATABASE_ERROR){
+                setSnackBar()
+            }else{
+                val bottomSheetFragment = DialogGagalGet()
+                activity?.supportFragmentManager?.let { it1 -> bottomSheetFragment.show(it1,"DialogGagal") }
+            }
         }
         viewmodel.getSwLoading.observe(viewLifecycleOwner) {
             binding.pbSubmitRegistrasi.visibility = View.VISIBLE
@@ -235,6 +256,16 @@ class DashboardFragment : Fragment() {
 
 
         }
+    }
+
+    private fun setSnackBar(){
+        val snackbar = Snackbar.make(binding.clContainer, UNKNOWN_DATABASE_ERROR, 5000)
+        snackbar.setActionTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+        snackbar.view.background = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_snackbar)
+        snackbar.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+        snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text).textSize = 12f
+        snackbar.view.height
+        snackbar.show()
     }
 
     private fun iniAction() {

@@ -144,6 +144,7 @@
 
 
             <ImageView
+                android:paddingHorizontal="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_kelembapan"
@@ -159,6 +160,7 @@
                 android:fontFamily="@font/poppinslight"
                 android:textSize="10sp"
                 android:maxLines="2"
+                android:gravity="center"
                 android:shadowColor="@color/white"
                 android:layout_gravity="bottom|start"
                 android:layout_marginBottom="7dp"

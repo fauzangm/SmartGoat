@@ -5,6 +5,7 @@ import com.eduside.bappenda.di.IoDispatcher
 import com.eduside.smartgoat.data.remote.ApiServices
 import com.eduside.smartgoat.data.remote.model.Error.Companion.getErrorMessage
 import com.eduside.smartgoat.data.remote.response.PutTimbanganResponse
+import com.eduside.smartgoat.util.UNKNOWN_DATABASE_ERROR
 import com.google.gson.JsonObject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
@@ -30,8 +31,12 @@ class TimbanganRepository @Inject constructor(
                         reqResponse.postValue(it)
                     }
                 } else {
-                    error.postValue(
-                        putResponse.errorBody()?.let { getErrorMessage(it.string()) })
+                    if (putResponse.code() !=  404){
+                        error.postValue(
+                            putResponse.errorBody()?.let { getErrorMessage(it.string()) })
+                    }else {
+                        error.postValue(UNKNOWN_DATABASE_ERROR)
+                    }
                 }
                 loading.postValue(false)
             } catch (e: Exception) {

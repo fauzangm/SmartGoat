@@ -5,7 +5,7 @@ const val UNKNOWN_ERROR =
 const val UNKNOWN_NETWORK_ERROR =
     "Mohon maaf, terjadi masalah saat menghubungi server, harap coba lagi nanti."
 const val UNKNOWN_DATABASE_ERROR =
-    "Mohon maaf, terjadi masalah pada database perangkat, coba install ulang aplikasi."
+    "Mohon maaf, terjadi masalah saat sinkronisasi data, harap coba lagi nanti atau hubungi admin"
 
 const val ARG_DAERAH = "argDaerah"
 

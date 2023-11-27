@@ -1,6 +1,7 @@
 package com.eduside.smartgoat.di
 
 import android.content.Context
+import com.eduside.smartgoat.BuildConfig.BASE_URL
 import com.eduside.smartgoat.BuildConfig.DEBUG
 import com.eduside.smartgoat.data.local.sp.SessionLogin
 import com.eduside.smartgoat.data.remote.ApiServices
@@ -26,7 +27,6 @@ object AppModules {
     private const val CONNECT_TIMEOUT: Long = 30
     private const val READ_TIMEOUT: Long = 30
     private const val WRITE_TIMEOUT: Long = 30
-    private const val BASE_URL = "https://oyifarm.mirandajaya.com/api/"
 
     @Provides
     @Singleton

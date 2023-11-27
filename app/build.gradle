@@ -74,14 +74,14 @@ android {
     productFlavors {
         prod {
             dimension "env"
-            buildConfigField "String", "BASE_URL", '"https://farmer.oyifarm.com/api/"'
+            buildConfigField "String", "BASE_URL", '"https://app.infarm.web.id/api/"'
             resValue "string", "app_name", "Smart Goat"
         }
         dev {
             dimension "env"
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
-            buildConfigField "String", "BASE_URL", '"https://farmer.oyifarm.com/api/"'
+            buildConfigField "String", "BASE_URL", '"https://app.infarm.web.id/api/"'
             resValue "string", "app_name", "Smart Goat"
         }
     }

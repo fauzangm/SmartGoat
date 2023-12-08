@@ -1,7 +1,7 @@
 package com.eduside.smartgoat.ui.cctv
 
 
-import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,17 +10,15 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.eduside.smartgoat.R
 import com.eduside.smartgoat.databinding.ActivityCctvBinding
-import com.eduside.smartgoat.databinding.ActivitySplashBinding
 import com.eduside.smartgoat.ui.DialogGagalGet
-import com.eduside.smartgoat.ui.auth.AuthViewModel
-import com.eduside.smartgoat.ui.auth.SplashKtpActivity
-import com.eduside.smartgoat.ui.auth.login.DialogGagalLogin
-import com.eduside.smartgoat.ui.auth.register.DialogSuccesRegist
 import com.eduside.smartgoat.util.showLoading
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import timber.log.Timber
+
 
 @AndroidEntryPoint
 class ImageActivity : AppCompatActivity() {
@@ -65,15 +63,14 @@ class ImageActivity : AppCompatActivity() {
             showLoading(this, binding.pbSubmitRegistrasi, it)
         }
         viewmodel.GetRegResponse.observe(this) {
-            it.data?.forEach {
-                Log.e("itcctv", it.toString())
-            }
             val lenght = it.data?.size
             try {
                 if (lenght != null) {
 
                     try {
                         if (lenght > 1) {
+                            val url = it.data.get(0).toString()
+                            Timber.e("cek url $url")
                             Glide
                                 .with(applicationContext)
                                 .load(it.data?.get(lenght - 1))
@@ -85,71 +82,57 @@ class ImageActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
-
-
                     try {
-
-                        Glide
-                            .with(applicationContext)
-                            .load(it.data?.get(lenght - 2))
-                            .centerCrop()
-                            .placeholder(R.drawable.ic_defaultimage)
-                            .into(binding.imgCctv2)
-
-
+                        if (lenght > 2) {
+                            Glide
+                                .with(applicationContext)
+                                .load(it.data?.get(lenght - 2))
+                                .centerCrop()
+                                .placeholder(R.drawable.ic_defaultimage)
+                                .into(binding.imgCctv2)
+                        }
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
-
-
                     try {
-                        Glide
-                            .with(applicationContext)
-                            .load(it.data?.get(lenght - 3))
-                            .centerCrop()
-                            .placeholder(R.drawable.ic_defaultimage)
-                            .into(binding.imgCctv3)
+                        if (lenght > 3) {
+                            Glide
+                                .with(applicationContext)
+                                .load(it.data?.get(lenght - 3))
+                                .centerCrop()
+                                .placeholder(R.drawable.ic_defaultimage)
+                                .into(binding.imgCctv3)
+                        }
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
-
                     try {
-
-                        Glide
-                            .with(applicationContext)
-                            .load(it.data?.get(lenght - 4))
-                            .centerCrop()
-                            .placeholder(R.drawable.ic_defaultimage)
-                            .into(binding.imgCctv4)
-
-
+                        if (lenght > 4) {
+                            Glide
+                                .with(applicationContext)
+                                .load(it.data?.get(lenght - 4))
+                                .centerCrop()
+                                .placeholder(R.drawable.ic_defaultimage)
+                                .into(binding.imgCctv4)
+                        }
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
-
-
                     try {
-
-
-                        Glide
-                            .with(applicationContext)
-                            .load(it.data?.get(lenght - 5))
-                            .centerCrop()
-                            .placeholder(R.drawable.ic_defaultimage)
-                            .into(binding.imgCctv5)
-
-
+                        if (lenght > 5) {
+                            Glide
+                                .with(applicationContext)
+                                .load(it.data?.get(lenght - 5))
+                                .centerCrop()
+                                .placeholder(R.drawable.ic_defaultimage)
+                                .into(binding.imgCctv5)
+                        }
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
-
-
-                    Log.e("sizenya", lenght.toString())
-
-
                 }
 
-            } catch (e:Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
 
